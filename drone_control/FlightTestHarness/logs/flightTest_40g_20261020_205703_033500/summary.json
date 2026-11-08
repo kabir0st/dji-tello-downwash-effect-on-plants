@@ -1,0 +1,19 @@
+{
+  "flight_start_timestamp": "2026-10-20T20:57:05.471+02:00",
+  "flight_end_timestamp": "2026-10-20T20:59:12.425+02:00",
+  "payload_weight_g": 40,
+  "tof_second": 126.95,
+  "battery_start_pct": 81,
+  "battery_at_landing_pct": 19,
+  "vps_status": null,
+  "max_speed_cm_s": 5.0,
+  "max_altitude_cm": 60,
+  "estimated_distance_cm": 8.06,
+  "max_temperature_c": 78,
+  "average_temperature_c": 74.25,
+  "landing_command_succeeded": true,
+  "landing_reason": "battery at 19%",
+  "telemetry_csv": "D:\\University Doc\\Course Content\\Year2\\DEIS\\Projects\\TelloSDK\\FlightTestHarness\\logs\\flightTest_40g_20261020_205703_033500\\telemetry.csv",
+  "warnings_errors_log": "D:\\University Doc\\Course Content\\Year2\\DEIS\\Projects\\TelloSDK\\FlightTestHarness\\logs\\flightTest_40g_20261020_205703_033500\\warnings_errors.log",
+  "distance_note": "Estimated by integrating Tello velocity telemetry; drift and sensor error are possible."
+}

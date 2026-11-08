@@ -1,0 +1,9 @@
+2026-10-13T12:08:06+0200 INFO djitellopy: Tello instance was initialized. Host: '192.168.10.1'. Port: '8889'.
+2026-10-13T12:08:06+0200 INFO djitellopy: Send command: 'command'
+2026-10-13T12:08:06+0200 INFO djitellopy: Response command: 'ok'
+2026-10-13T12:08:08+0200 INFO djitellopy: Send command: 'takeoff'
+2026-10-13T12:08:13+0200 INFO djitellopy: Response takeoff: 'ok'
+2026-10-13T12:08:18+0200 INFO djitellopy: Send command (no response expected): 'rc 0 0 0 0'
+2026-10-13T12:08:22+0200 INFO payload_test: Landing requested: operator command.
+2026-10-13T12:08:22+0200 INFO djitellopy: Send command: 'land'
+2026-10-13T12:08:25+0200 INFO djitellopy: Response land: 'ok'

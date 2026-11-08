@@ -1,0 +1,4 @@
+timestamp,elapsed_seconds,payload_weight_g,battery_pct,vps_status,speed_x_cm_s,speed_y_cm_s,speed_z_cm_s,speed_3d_cm_s,altitude_cm,tof_distance_cm,temperature_low_c,temperature_high_c,temperature_avg_c,estimated_distance_cm
+2026-10-20T20:27:00.759+02:00,0.09,0,77,,0,0,0,0.0,0,10,50,52,51.0,0.0
+2026-10-20T20:27:01.766+02:00,1.11,0,77,,0,0,-7,7.0,10,25,50,52,51.0,3.56
+2026-10-20T20:27:02.775+02:00,2.11,0,77,,0,0,-1,1.0,50,82,50,53,51.5,7.56

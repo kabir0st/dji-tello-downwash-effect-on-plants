@@ -1,0 +1,1 @@
+timestamp,elapsed_seconds,payload_weight_g,battery_pct,vps_status,speed_x_cm_s,speed_y_cm_s,speed_z_cm_s,speed_3d_cm_s,altitude_cm,tof_distance_cm,temperature_low_c,temperature_high_c,temperature_avg_c,estimated_distance_cm

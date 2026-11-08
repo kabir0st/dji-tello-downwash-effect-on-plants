@@ -1,0 +1,27 @@
+2026-10-20T19:24:08+0200 INFO djitellopy: Tello instance was initialized. Host: '192.168.10.1'. Port: '8889'.
+2026-10-20T19:24:08+0200 INFO djitellopy: Send command: 'command'
+2026-10-20T19:24:15+0200 WARNING djitellopy: Aborting command 'command'. Did not receive a response after 7 seconds
+2026-10-20T19:24:15+0200 INFO djitellopy: Send command: 'command'
+2026-10-20T19:24:22+0200 WARNING djitellopy: Aborting command 'command'. Did not receive a response after 7 seconds
+2026-10-20T19:24:22+0200 INFO djitellopy: Send command: 'command'
+2026-10-20T19:24:29+0200 WARNING djitellopy: Aborting command 'command'. Did not receive a response after 7 seconds
+2026-10-20T19:24:29+0200 ERROR payload_test: Payload test failed.
+Traceback (most recent call last):
+  File "D:\University Doc\Course Content\Year2\DEIS\Projects\TelloSDK\FlightTestHarness\flight_test_harness.py", line 305, in run_payload_test
+    tello.connect()
+  File "D:\University Doc\Course Content\Year2\DEIS\Projects\.venv\Lib\site-packages\djitellopy\enforce_types.py", line 54, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\University Doc\Course Content\Year2\DEIS\Projects\.venv\Lib\site-packages\djitellopy\tello.py", line 535, in connect
+    self.send_control_command("command")
+  File "D:\University Doc\Course Content\Year2\DEIS\Projects\.venv\Lib\site-packages\djitellopy\enforce_types.py", line 54, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\University Doc\Course Content\Year2\DEIS\Projects\.venv\Lib\site-packages\djitellopy\tello.py", line 487, in send_control_command
+    self.raise_result_error(command, response)
+  File "D:\University Doc\Course Content\Year2\DEIS\Projects\.venv\Lib\site-packages\djitellopy\enforce_types.py", line 54, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\University Doc\Course Content\Year2\DEIS\Projects\.venv\Lib\site-packages\djitellopy\tello.py", line 529, in raise_result_error
+    raise TelloException("Command '{}' was unsuccessful for {} tries. Latest response:\t'{}'"
+djitellopy.tello.TelloException: Command 'command' was unsuccessful for 4 tries. Latest response:	'Aborting command 'command'. Did not receive a response after 7 seconds'
