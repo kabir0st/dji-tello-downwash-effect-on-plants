@@ -1,6 +1,8 @@
 import json
+from dataclasses import dataclass
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
 
 
@@ -58,3 +60,12 @@ def load_dataset(root: str | Path = "data") -> list[dict]:
             }
         )
     return sorted(plants, key=lambda p: int(p["plant_id"][1:]))
+
+
+@dataclass
+class Clip:
+    meta_info: dict
+    path: Path
+    info: dict
+    t_s: np.ndarray
+    telemetry: pd.DataFrame
