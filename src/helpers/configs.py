@@ -17,7 +17,7 @@ TOF_MAX_STD_MM = 50.0
 # A tape-measured calibration shot (Tello above a tag at known distance) would pin it down.
 TELLO_FOCAL_PX = 840.0
 
-# --- Masks, OpenCV HSV (H 0-180, S/V 0-255)
+# Masks, OpenCV HSV (H 0-180, S/V 0-255)
 PLANT_HSV_LO = (
     20,
     50,
