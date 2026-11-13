@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import cv2
 
 
@@ -15,7 +17,7 @@ def frame_count(path):
     return n
 
 
-def iter_paris(path, step=1):
+def iter_paris(path: Path, step=1):
     cap = cv2.VideoCapture(path)
     prev, i = None, 0
     start = 0

@@ -9,3 +9,4 @@ wheels/
 data/
 data.rar
 *.rar
+logs*

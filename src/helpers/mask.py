@@ -31,6 +31,5 @@ def background_mask(plant):
 
 
 def masks_hsv(frame, i):
-    """mask_fn interface used by the glue (§8): (mask for motion, mask for indices)."""
     m = plant_mask_hsv(frame)
     return m, m

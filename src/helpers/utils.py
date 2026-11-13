@@ -54,7 +54,6 @@ def load_dataset(root: str | Path = "data") -> list[dict]:
             {
                 "plant_id": plant_id,
                 "plant_name": plant_name,
-                "meta_data": _shared_info(all_runs),
                 "baseline": baseline,
                 "runs": runs,
             }
