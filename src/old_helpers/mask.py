@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-from helpers.configs import MIN_BLOB_PX, PLANT_HSV_HI, PLANT_HSV_LO
+from old_helpers.configs import MIN_BLOB_PX, PLANT_HSV_HI, PLANT_HSV_LO
 
 FONT, WHITE = cv2.FONT_HERSHEY_SIMPLEX, (255, 255, 255)
 COLORS = {"HoverRun": "#2a78d6", "ReferenceRun": "#eb6834"}  # colour-blind-safe pair
