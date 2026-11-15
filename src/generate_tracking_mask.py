@@ -10,13 +10,35 @@ import numpy as np
 
 from helpers.clip import first_frame, frame_count
 from helpers.configs import OUT_DIR
-from helpers.masks import mask_path, masks_done, pack_mask, save_masks
+from helpers.masks import check_masks, load_masks, mask_path, pack_mask, save_masks
 from helpers.sam import SamClicker, load_prompts, track
 from helpers.utils import load_dataset
 
 CLIP_KEYS = ["phone", "video"]
 CLIPS_DIR = OUT_DIR / "masked_clips"
 SHOW = True
+
+
+def overlay_path(plant_name, clip_type, clip_id):
+    return CLIPS_DIR / plant_name / f"{clip_type}_{clip_id}.mp4"
+
+
+def overlay_ok(path, n_frames):
+    if not path.exists():
+        return False
+    cap = cv2.VideoCapture(str(path))
+    n = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+    cap.release()
+    return n == n_frames
+
+
+def open_writer(clip, out_video, size):
+    out_video.parent.mkdir(parents=True, exist_ok=True)
+    cap = cv2.VideoCapture(clip)
+    fps = cap.get(cv2.CAP_PROP_FPS)
+    cap.release()
+    fourcc = cv2.VideoWriter_fourcc(*"mp4v")
+    return cv2.VideoWriter(str(out_video), fourcc, fps, size)
 
 
 def draw_mask(frame, mask):
@@ -29,17 +51,34 @@ def draw_mask(frame, mask):
     return vis
 
 
-def track_clip(clip, clip_id, clip_type, plant_name, prompt, sam):
-    out_video = CLIPS_DIR / plant_name / f"{clip_type}_{clip_id}.mp4"
-    out_video.parent.mkdir(parents=True, exist_ok=True)
+def render_overlay(clip, mask_file, out_video, total):
+    h, w = first_frame(clip).shape[:2]
+    writer = open_writer(clip, out_video, (w, h))
+    get = load_masks(mask_file)
     cap = cv2.VideoCapture(clip)
-    fps = cap.get(cv2.CAP_PROP_FPS)
-    cap.release()
+    i = 0
+    try:
+        while True:
+            ok, frame = cap.read()
+            if not ok:
+                break
+            m = get(i)
+            writer.write(frame if m is None else draw_mask(frame, m))
+            i += 1
+            print(f"\rrebuilding overlay {out_video.name} | {i}/{total}", end="", flush=True)
+    finally:
+        cap.release()
+        writer.release()
+    print()
+    print("saved", out_video)
+
+
+def track_clip(clip, clip_id, clip_type, plant_name, prompt, sam):
+    out_video = overlay_path(plant_name, clip_type, clip_id)
     total = frame_count(clip)
     h, w = first_frame(clip).shape[:2]
     s = min(1280 / w, 720 / h, 1.0)
-    fourcc = cv2.VideoWriter_fourcc(*"mp4v")
-    writer = cv2.VideoWriter(str(out_video), fourcc, fps, (w, h))
+    writer = open_writer(clip, out_video, (w, h))
 
     masks, first, t0 = {}, None, time.time()
     for i, frame, m in track(clip, prompt, sam):
@@ -75,7 +114,7 @@ def track_clip(clip, clip_id, clip_type, plant_name, prompt, sam):
         print("could not read any frames:", clip)
         return None
     path = mask_path(clip_id, clip_type)
-    save_masks(masks, (h, w), path, complete=True)
+    save_masks(masks, (h, w), path, complete=True, prompt=prompt)
     print("saved", path, "and", out_video)
     return None
 
@@ -85,28 +124,41 @@ def main():
     if not plants:
         raise ValueError("Cannot find any data.")
     prompts = load_prompts()
-    sam = SamClicker()
+    sam = None  # loaded on first clip that actually needs tracking
     for plant in plants:
         for clips in chain(plant["baseline"], plant["runs"]):
             for clip_type in CLIP_KEYS:
                 clip_id = clips["clip_id"]
-                if not clips[clip_type]:
+                clip = clips[clip_type]
+                if not clip:
                     continue
                 if clip_type not in prompts.get(clip_id, {}):
                     print(
                         "no annotation yet, run annotate.py first:", clip_id, clip_type
                     )
                     continue
-                if masks_done(mask_path(clip_id, clip_type)):
-                    continue
                 prompt = prompts[clip_id][clip_type]
+                total = frame_count(clip)
+                h, w = first_frame(clip).shape[:2]
+                path = mask_path(clip_id, clip_type)
+
+                ok, reason, n_empty = check_masks(path, (h, w), total, prompt)
+                if ok:
+                    if n_empty:
+                        print(
+                            f"warning: {clip_id} {clip_type}: {n_empty}/{total} "
+                            "frames have an empty mask, consider re-annotating"
+                        )
+                    out_video = overlay_path(plant["plant_name"], clip_type, clip_id)
+                    if not overlay_ok(out_video, total):
+                        render_overlay(clip, path, out_video, total)
+                    continue
+                if reason != "missing":
+                    print("invalid mask, regenerating:", clip_id, clip_type, "-", reason)
+
+                sam = sam or SamClicker()
                 res = track_clip(
-                    clips[clip_type],
-                    clip_id,
-                    clip_type,
-                    plant["plant_name"],
-                    prompt,
-                    sam,
+                    clip, clip_id, clip_type, plant["plant_name"], prompt, sam
                 )
                 if res == "quit":
                     cv2.destroyAllWindows()
