@@ -15,3 +15,12 @@ def frame_count(path):
     n = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
     cap.release()
     return n
+
+
+def first_frame(path):
+    cap = cv2.VideoCapture(path)
+    ok, frame = cap.read()
+    cap.release()
+    if not ok:
+        raise OSError(f"Cannot read {path}")
+    return frame

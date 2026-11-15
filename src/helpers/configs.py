@@ -8,3 +8,4 @@ MASK_DIR = OUT_DIR / "masks"
 RUNS_DIR = OUT_DIR / "runs"
 
 SAM_MODEL = "facebook/sam2.1-hiera-tiny"
+# SAM_MODEL = "facebook/sam2.1-hiera-large"
