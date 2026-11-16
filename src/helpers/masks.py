@@ -70,6 +70,10 @@ def check_masks(path, shape, n_frames, prompt=None):
     return True, "ok", n_empty
 
 
+def unpack_mask(packed, w):
+    return np.unpackbits(packed, axis=-1, count=w).astype(bool)
+
+
 def load_masks(path):
     z = np.load(path)
     packed, w = z["packed"], int(z["shape"][1])
@@ -79,6 +83,13 @@ def load_masks(path):
         j = row.get(i)
         if j is None:
             return None
-        return np.unpackbits(packed[j], axis=-1, count=w).astype(bool)
+        return unpack_mask(packed[j], w)
 
     return get
+
+
+def iter_masks(path):
+    z = np.load(path)
+    w = int(z["shape"][1])
+    for i, packed in zip(z["frame_idx"], z["packed"]):
+        yield int(i), unpack_mask(packed, w)

@@ -15,7 +15,7 @@ def load_run(run_dir: Path) -> dict:
     return {
         "clip_id": info["clip_id"],
         "height_cm": info["height_cm"],
-        "wind": "_r2" in str(run_dir),
+        "wind": "_wind" in info["plant_id"],
         "repeat": info["repeat"],
         "run_info": info,
         "run_dir": run_dir,
@@ -55,16 +55,9 @@ def load_dataset(root: str | Path = DATA_DIR) -> list[dict]:
     return sorted(plants, key=lambda p: int(p["plant_id"][1:]))
 
 
-# def iter_clips(plants=None, clips=None):
-#     """The one loop every command uses: yields (run, cam, meta) for every clip file that exists.
-#     plants={"p1"} / clips={"p1_hov_h030_r1"} narrow it down."""
-#     for plant in load_dataset(DATA_DIR):
-#         if plants and plant["plant_id"] not in plants:
-#             continue
-#         for run in plant["baseline"] + plant["runs"]:
-#             meta = run_meta(plant, run)
-#             if clips and meta["clip_id"] not in clips:
-#                 continue
-#             for cam in cams:
-#                 if run[cam]:  # some references have no phone clip
-#                     yield run, cam, meta
+def iter_clips(cams=("phone", "video")):
+    for plant in load_dataset():
+        for run in plant["baseline"] + plant["runs"]:
+            for cam in cams:
+                if run[cam]:
+                    yield plant, run, cam
