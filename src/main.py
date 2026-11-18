@@ -100,6 +100,7 @@ def process_clip(clip, clicker):
     win = "SAM Clicker"
     cv2.namedWindow(win, cv2.WINDOW_AUTOSIZE)
     cv2.setMouseCallback(win, on_mouse)
+    # taking prompts for tracking
     while True:
         vis = frame.copy()
         if state["mask"] is not None:
@@ -121,8 +122,9 @@ def process_clip(clip, clicker):
             break
     total = int(cv2.VideoCapture(clip).get(cv2.CAP_PROP_FRAME_COUNT))
     win, t0, first = "SAM track", time.time(), None
-    print(pts, lbl)
-    for i, frm, m in track(clip, pts, lbl, clicker):
+    
+    for i, frm, m in track(clip,{ "points": pts, "labels": lbl}, clicker):
+        # area from the first frame / no. of pixels plant mask gives
         first = first or max(int(m.sum()), 1)
         vis = frm.copy()
         vis[m] = (0.5 * vis[m] + 0.5 * np.array([255, 0, 255])).astype(np.uint8)

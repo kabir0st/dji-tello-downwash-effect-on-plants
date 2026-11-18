@@ -24,3 +24,21 @@ def first_frame(path):
     if not ok:
         raise OSError(f"Cannot read {path}")
     return frame
+
+
+def iter_pairs(path, step=1):
+    """Yield (i, frame_i, frame_{i+step}) for consecutive sampled frames."""
+    cap = cv2.VideoCapture(path)
+    prev, i = None, 0
+    try:
+        while True:
+            ok, frame = cap.read()
+            if not ok:
+                break
+            if i % step == 0:
+                if prev is not None:
+                    yield prev[0], prev[1], frame
+                prev = (i, frame)
+            i += 1
+    finally:
+        cap.release()

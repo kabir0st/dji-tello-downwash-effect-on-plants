@@ -4,13 +4,12 @@ os.environ["QT_QPA_PLATFORM"] = "xcb"
 import cv2
 import numpy as np
 
-from old_helpers.mask import background_mask, border_mask, plant_mask_hsv
-from old_helpers.utils import load_dataset
+from helpers.hsv_mask import background_mask, border_mask, plant_mask_hsv
+from helpers.utils import load_dataset
 
 INFO_KEYS = ["clip_id", "plant_id", "plant_species", "run_type", "height_cm", "repeat"]
 QA_HEAT_MAX_PX = 5.0
 
-DATA_PATH = "./../data"
 CLIP_KEYS = ["video", "phone"]
 
 
@@ -59,7 +58,7 @@ def process_plant(plant):
 
 
 def main():
-    plants = load_dataset("./../data")
+    plants = load_dataset()
     if not plants:
         raise ValueError("Cannot find any data.")
     for plant in plants:

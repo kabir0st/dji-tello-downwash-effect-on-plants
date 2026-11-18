@@ -12,6 +12,16 @@ SAM_LOOKBACK = 16
 FONT = cv2.FONT_HERSHEY_SIMPLEX
 HELP = "L-click plant | R-click NOT plant | z undo | c clear | Enter save | Esc skip | q quit"
 
+torch.backends.cuda.matmul.allow_tf32 = True
+torch.backends.cudnn.allow_tf32 = True
+
+def pick_dtype():
+    # bf16 only on NVIDIA Ampere/Ada (A5000, RTX 4000 Ada); fp32 on Turing, your AMD card, CPU
+    if torch.cuda.is_available() and torch.version.cuda and torch.cuda.get_device_capability()[0] >= 8:
+        return torch.bfloat16
+    return torch.float32
+
+DTYPE = pick_dtype()
 
 def load_prompts():
     return json.loads(PROMPTS.read_text()) if PROMPTS.exists() else {}
