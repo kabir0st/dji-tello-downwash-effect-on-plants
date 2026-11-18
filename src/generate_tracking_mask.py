@@ -1,4 +1,5 @@
 import os
+from itertools import chain
 
 os.environ["QT_QPA_PLATFORM"] = "xcb"
 
@@ -9,8 +10,8 @@ import numpy as np
 
 from helpers.clip import first_frame, frame_count
 from helpers.configs import OUT_DIR
-from helpers.masks import load_masks, mask_path, pack_mask, save_masks
-from helpers.sam import load_prompts, track
+from helpers.masks import check_masks, load_masks, mask_path, pack_mask, save_masks
+from helpers.sam import SamClicker, load_prompts, track
 from helpers.utils import load_dataset
 
 CLIP_KEYS = ["phone", "video"]
@@ -105,9 +106,7 @@ def track_clip(clip, clip_id, clip_type, plant_name, prompt, sam):
                 out_video.unlink()
                 print("\nstopped, this clip was not saved")
                 return "quit"
-    print()
     writer.release()
-
     if not masks:
         out_video.unlink()
         print("could not read any frames:", clip)
@@ -123,47 +122,44 @@ def main():
     if not plants:
         raise ValueError("Cannot find any data.")
     prompts = load_prompts()
-    print(prompts.keys())
-    # sam = None  # loaded on first clip that actually needs tracking
-    # for plant in plants:
-    #     for clips in chain(plant["baseline"], plant["runs"]):
-    #         for clip_type in CLIP_KEYS:
-    #             clip_id = clips["clip_id"]
-    #             clip = clips[clip_type]
-    #             if not clip:
-    #                 continue
-    #             if clip_type not in prompts.get(clip_id, {}):
-    #                 print(
-    #                     "no annotation yet, run annotate.py first:", clip_id, clip_type
-    #                 )
-    #                 continue
-    #             prompt = prompts[clip_id][clip_type]
-    #             total = frame_count(clip)
-    #             h, w = first_frame(clip).shape[:2]
-    #             path = mask_path(clip_id, clip_type)
+    sam = SamClicker()
+    for plant in plants:
+        for clips in chain(plant["baseline"], plant["runs"]):
+            for clip_type in CLIP_KEYS:
+                clip_id = clips["clip_id"]
+                clip = clips[clip_type]
+                if not clip:
+                    continue
+                if clip_type not in prompts.get(clip_id, {}):
+                    print(
+                        "no annotation yet, run annotate.py first:", clip_id, clip_type
+                    )
+                    continue
+                prompt = prompts[clip_id][clip_type]
+                total = frame_count(clip)
+                h, w = first_frame(clip).shape[:2]
+                path = mask_path(clip_id, clip_type)
 
-    #             ok, reason, n_empty = check_masks(path, (h, w), total, prompt)
-    #             if ok:
-    #                 if n_empty:
-    #                     print(
-    #                         f"warning: {clip_id} {clip_type}: {n_empty}/{total} "
-    #                         "frames have an empty mask, consider re-annotating"
-    #                     )
-    #                 out_video = overlay_path(plant["plant_name"], clip_type, clip_id)
-    #                 if not overlay_ok(out_video, total):
-    #                     render_overlay(clip, path, out_video, total)
-    #                 continue
-    #             if reason != "missing":
-    #                 print("invalid mask, regenerating:", clip_id, clip_type, "-", reason)
-
-    #             sam = sam or SamClicker()
-    #             res = track_clip(
-    #                 clip, clip_id, clip_type, plant["plant_name"], prompt, sam
-    #             )
-    #             if res == "quit":
-    #                 cv2.destroyAllWindows()
-    #                 return
-    # cv2.destroyAllWindows()
+                ok, reason, n_empty = check_masks(path, (h, w), total, prompt)
+                if ok:
+                    if n_empty:
+                        print(
+                            f"warning: {clip_id} {clip_type}: {n_empty}/{total} "
+                            "frames have an empty mask, consider re-annotating"
+                        )
+                    out_video = overlay_path(plant["plant_name"], clip_type, clip_id)
+                    if not overlay_ok(out_video, total):
+                        render_overlay(clip, path, out_video, total)
+                    continue
+                if reason != "missing":
+                    print("invalid mask, regenerating:", clip_id, clip_type, "-", reason)
+                res = track_clip(
+                    clip, clip_id, clip_type, plant["plant_name"], prompt, sam
+                )
+                if res == "quit":
+                    cv2.destroyAllWindows()
+                    return
+    cv2.destroyAllWindows()
 
 
 if __name__ == "__main__":

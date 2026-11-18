@@ -1,14 +1,11 @@
-import argparse
-import json
 from itertools import chain
-from pathlib import Path
 
 import cv2
 import numpy as np
 
 from helpers.clip import first_frame
 from helpers.configs import DATA_DIR, ROOT
-from helpers.sam import FONT, SamClicker
+from helpers.sam import FONT, SamClicker, load_prompts
 from helpers.utils import load_dataset
 
 CLIP_KEYS = ["phone", "video"]
@@ -37,19 +34,13 @@ def draw_points(vis, points, labels):
 
 
 def main():
-    ap = argparse.ArgumentParser(description="Draw frame-0 SAM masks for prompts.")
-    ap.add_argument("--prompts", type=Path, default=PROMPTS, help="prompts json")
-    ap.add_argument("--only", default="", help="only clip_ids starting with this, e.g. p10_")
-    args = ap.parse_args()
-
-    prompts = json.loads(args.prompts.read_text())
+    
+    prompts = load_prompts()
     sam = SamClicker()
     OUT.mkdir(parents=True, exist_ok=True)
     for plant in load_dataset(DATA_DIR):
         for clip in chain(plant["baseline"], plant["runs"]):
             clip_id = clip["clip_id"]
-            if not clip_id.startswith(args.only):
-                continue
             for cam in CLIP_KEYS:
                 prompt = prompts.get(clip_id, {}).get(cam)
                 if not clip[cam] or not prompt:

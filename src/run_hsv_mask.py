@@ -63,8 +63,6 @@ def main():
         raise ValueError("Cannot find any data.")
     for plant in plants:
         process_plant(plant)
-        break
-    # pprint(plants)
 
 
 if __name__ == "__main__":
