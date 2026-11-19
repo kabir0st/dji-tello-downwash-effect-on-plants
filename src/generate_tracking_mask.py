@@ -140,7 +140,7 @@ def main():
                 h, w = first_frame(clip).shape[:2]
                 path = mask_path(clip_id, clip_type)
 
-                ok, reason, n_empty = check_masks(path, (h, w), total, prompt)
+                ok, reason, n_empty = check_masks(path, (h, w), total)
                 if ok:
                     if n_empty:
                         print(

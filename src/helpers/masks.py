@@ -36,13 +36,7 @@ def save_masks(masks, shape, path, complete, prompt=None):
     )
 
 
-def check_masks(path, shape, n_frames, prompt=None):
-    """Return (ok, reason, n_empty) for the mask file at `path`.
-
-    ok is True only if the file is a complete mask for a clip of `shape` (h, w)
-    with `n_frames` frames, made from `prompt` (when the file stores one).
-    n_empty counts frames whose mask has no pixels; it does not affect ok.
-    """
+def check_masks(path, shape, n_frames):
     if not path.exists():
         return False, "missing", 0
     h, w = shape
@@ -61,9 +55,6 @@ def check_masks(path, shape, n_frames, prompt=None):
             packed = z["packed"]
             if packed.shape != (n_frames, h, (w + 7) // 8):
                 return False, f"packed array shape {packed.shape}", 0
-            saved_prompt = str(z["prompt"]) if "prompt" in z else ""
-            if prompt is not None and saved_prompt and saved_prompt != prompt_key(prompt):
-                return False, "prompt changed", 0
             n_empty = int((~packed.reshape(n_frames, -1).any(axis=1)).sum())
     except (OSError, ValueError, KeyError, EOFError, zipfile.BadZipFile) as e:
         return False, f"unreadable ({type(e).__name__})", 0

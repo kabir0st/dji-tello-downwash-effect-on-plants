@@ -23,9 +23,12 @@ def draw_mask(frame, mask):
     return vis
 
 
-def draw_points(vis, points, labels):
+def draw_points(vis, points, labels, box=None):
     s = vis.shape[1] / 1000
     r = max(5, int(7 * s))
+    if box:
+        b = [int(v) for v in box]
+        cv2.rectangle(vis, (b[0], b[1]), (b[2], b[3]), (0, 255, 255), max(2, int(3 * s)))
     for k, ((x, y), l) in enumerate(zip(points, labels)):
         p = (int(x), int(y))
         cv2.circle(vis, p, r + 2, (0, 0, 0), -1)
@@ -46,14 +49,15 @@ def main():
                 if not clip[cam] or not prompt:
                     continue
                 frame = first_frame(clip[cam])
+                box = prompt.get("box")
                 pts_only = frame.copy()
-                draw_points(pts_only, prompt["points"], prompt["labels"])
+                draw_points(pts_only, prompt["points"], prompt["labels"], box)
                 cv2.imwrite(str(OUT / f"{clip_id}__{cam}.jpg"), pts_only)
                 sam.set_image(frame)
-                mask = sam.predict(prompt["points"], prompt["labels"])
+                mask = sam.predict(prompt["points"], prompt["labels"], box)
                 pct = 100 * mask.mean()
                 vis = draw_mask(frame, mask)
-                draw_points(vis, prompt["points"], prompt["labels"])
+                draw_points(vis, prompt["points"], prompt["labels"], box)
                 name = f"{clip_id}__{cam}"
                 s = vis.shape[1] / 1000
                 text = f"{name} | mask {pct:.1f}% of frame"

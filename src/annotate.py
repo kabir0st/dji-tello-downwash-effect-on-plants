@@ -18,8 +18,7 @@ def annotate_clip(clip, clip_id, clip_type, sam):
     if res is None:
         print("skipped", title)
         return None
-    pts, lbl = res
-    save_prompt(clip_id, clip_type, {"points": pts, "labels": lbl})
+    save_prompt(clip_id, clip_type, res)
     old = mask_path(clip_id, clip_type)
     if old.exists():
         old.unlink()

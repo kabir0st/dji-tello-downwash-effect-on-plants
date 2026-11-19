@@ -1,70 +1,92 @@
-import time
 
+
+from collections import deque
+
+import cv2
+import numpy as np
 import pandas as pd
 
 from helpers.clip import clip_fps, first_frame, frame_count
 from helpers.configs import METRICS_DIR
-from helpers.masks import check_masks, mask_path
-from helpers.metrics import frame_metrics, mm_per_px, summarize
-from helpers.sam import load_prompts
+from helpers.masks import check_masks, iter_masks, mask_path
 from helpers.utils import iter_clips
 
 FRAMES_DIR = METRICS_DIR / "frames"
 
-
 def condition(run):
-    if run["run_info"]["run_type"] == "HoverRun":
-        return f"hover_{run['height_cm']}"
-    return "wind_ref" if run["wind"] else "ref"
+    pass
+
+LAG_S = 1
+BG_ERODE = 9
+BG_STEP = 8
+RANSAC_PX = 1.0
+MIN_ZOOM_PCT = 1.0
+TAG_FRAMES = 30
+
+# tello 960x720 : 4:3
+# phone 1920x1080 : 16:9
+FLOW_MAX_SIDE = 960
+
+def frame_metrics(clip, fps, masks):
+    # converting lag per sec to frames
+    lag = max(1, round(LAG_S * fps))
+    history = deque(maxlen=lag)
+    dis = cv2.DISOpticalFlow(
+        cv2.DISOPTICAL_FLOW_PRESET_MEDIUM
+    )
+    kernel = np.ones(
+        (BG_ERODE,BG_ERODE), np.uint8
+    )
+    print(f'lag : {lag}, history : {history}')
+    cap = cv2.VideoCapture(
+        clip
+    )
+    rows, prev = [],None
+    to_first , scale = np.eye(3), 1.0
+    try:
+        for i, m in iter_masks(masks):
+            ok, frame = cap.read()
+            if not ok:
+                break
+            h, w = m.shape
+            s = min(1.0, FLOW_MAX_SIDE / max(h, w))
+            gray = cv2.cvtColor()
+            
+    finally:
+        cap.release()
 
 
-def load_frames(run, cam, masks, fps):
-    """Per-frame table, cached as JSON. Recomputed when the masks are newer than the cache."""
+
+def load_frames(run, cam, fps, masks):
     path = FRAMES_DIR / f"{run['clip_id']}_{cam}.json"
-    if path.exists() and path.stat().st_mtime > masks.stat().st_mtime:
+    
+    if path.exists():
+        print(f'{path} already there.')
         return pd.read_json(path, orient="records")
-    t0 = time.time()
-    df = frame_metrics(run[cam], masks, fps)
-    path.parent.mkdir(parents=True, exist_ok=True)
-    df.to_json(path, orient="records")
-    print(f"{path.name}: {len(df)} frames in {time.time() - t0:.0f} s")
-    return df
+    df = frame_metrics(run[cam], fps, masks)
+    
+    # path.parent.mkdir(parents=True, exist_ok=True)
+    # df.to_json(path, orient="records")
+    # print(f"{path.name}: {len(df)} frames in {time.time() - t0:.0f} s")
+    # return df
 
 
 def main():
-    prompts = load_prompts()
     rows = []
     for plant, run, cam in iter_clips():
-        clip, clip_id = run[cam], run["clip_id"]
+        clip, clip_id = run[cam], run['clip_id']
         masks = mask_path(clip_id, cam)
         shape = first_frame(clip).shape[:2]
-        prompt = prompts.get(clip_id, {}).get(cam)
-        ok, reason, _ = check_masks(masks, shape, frame_count(clip), prompt)
+        ok, reason, _ = check_masks(
+            masks, shape, frame_count(clip)
+        )
         if not ok:
             print(f"skipped {clip_id} {cam}: masks {reason}")
             continue
         fps = clip_fps(run, cam)
-        df = load_frames(run, cam, masks, fps)
-        mm = mm_per_px(run, cam)
-        rows.append(
-            {
-                "plant_id": plant["plant_id"],
-                "plant": plant["plant_name"],
-                "clip_id": clip_id,
-                "cam": cam,
-                "condition": condition(run),
-                "height_cm": run["height_cm"],
-                "repeat": run["repeat"],
-                "fps": fps,
-                "mm_per_px": mm,
-                "drone_h_cm": float(run["telemetry"]["h"].median()),
-                **summarize(df, fps, mm),
-            }
-        )
-    out = METRICS_DIR / "clips.json"
-    out.parent.mkdir(parents=True, exist_ok=True)
-    pd.DataFrame(rows).to_json(out, orient="records", indent=1)
-    print(f"saved {len(rows)} clips to {out}")
+        df = load_frames(run, cam, fps, masks)
+        # print(df.head())
+        break
 
 
 if __name__ == "__main__":
