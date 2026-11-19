@@ -47,7 +47,7 @@ def save_prompt(clip_id, cam, prompt):
 
 
 def load_sam_video(device):
-    model = Sam3TrackerVideoModel.from_pretrained(SAM_MODEL).to(device).eval()
+    model = Sam3TrackerVideoModel.from_pretrained(SAM_MODEL, dtype=DTYPE).to(device).eval()
     proc = Sam3TrackerVideoProcessor.from_pretrained(SAM_MODEL)
     return model, proc
 
@@ -89,7 +89,7 @@ class SamClicker:
 
 def track(path, prompt, sam):
     sess = sam.vproc.init_video_session(
-        inference_device=sam.device, dtype=torch.float32
+    inference_device=sam.device, dtype=DTYPE
     )
     cap = cv2.VideoCapture(path)
     i = 0

@@ -1,3 +1,7 @@
+import sys
+
+SHARD, N_SHARDS = (int(sys.argv[1]), int(sys.argv[2])) if len(sys.argv) == 3 else (0, 1)
+
 import os
 from itertools import chain
 
@@ -123,8 +127,12 @@ def main():
         raise ValueError("Cannot find any data.")
     prompts = load_prompts()
     sam = SamClicker()
+    k = 0
     for plant in plants:
         for clips in chain(plant["baseline"], plant["runs"]):
+            k += 1
+            if k % N_SHARDS != SHARD:
+                continue
             for clip_type in CLIP_KEYS:
                 clip_id = clips["clip_id"]
                 clip = clips[clip_type]
