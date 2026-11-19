@@ -11,10 +11,10 @@ from helpers.configs import TELLO_FOCAL_PX
 from helpers.masks import iter_masks
 
 LAG_S = 0.1  # shape change is measured between masks 0.1 s apart, whatever the fps
-FLOW_MAX_SIDE = 960  # flow at <= 960 px: Tello at full size, phone at half size
-BG_ERODE = 9  # px gap between the plant edge and the background sample
-BG_STEP = 8  # every 8th background pixel is used to fit the camera motion
-RANSAC_PX = 1.0  # background points further than this from the fit are ignored (tarp flutter)
+
+# every 8th background pixel is used to fit the camera motion 
+BG_STEP = 8  
+ # background points further than this from the fit are ignored (tarp flutter)
 MIN_ZOOM_PCT = 1.0  # below this the camera did not move up/down enough to fit the canopy zoom
 TAG_FRAMES = 30  # frames searched for the ArUco tag
 COLUMNS = [
@@ -60,13 +60,14 @@ def camera_motion(flow, bg, xy):
     M = None
     if len(src) >= 3:
         M, _ = cv2.estimateAffinePartial2D(
-            src, dst, method=cv2.RANSAC, ransacReprojThreshold=RANSAC_PX
+            src, dst, method=cv2.RANSAC, ransacReprojThreshold=1.0
         )
     return np.float64([[1, 0, 0], [0, 1, 0]]) if M is None else M
 
 
 def flow_metrics(flow, xy, plant, bg, M):
-    cam = xy @ M[:, :2].T + M[:, 2] - xy  # the flow the camera motion alone would cause
+    # the flow the camera motion alone would cause
+    cam = xy @ M[:, :2].T + M[:, 2] - xy 
     net = np.linalg.norm(flow - cam, axis=2)
     row = {}
     if bg.any():
@@ -82,7 +83,8 @@ def frame_metrics(video_path, mask_file, fps):
     lag = max(1, round(LAG_S * fps))
     history = deque(maxlen=lag)
     dis = cv2.DISOpticalFlow_create(cv2.DISOPTICAL_FLOW_PRESET_MEDIUM)
-    kernel = np.ones((BG_ERODE, BG_ERODE), np.uint8)
+    # px gap between the plant edge and the background sample
+    kernel = np.ones((9, 9), np.uint8)
     cap = cv2.VideoCapture(video_path)
     rows, prev = [], None
     # current frame -> frame 0, and background zoom since frame 0
@@ -93,19 +95,19 @@ def frame_metrics(video_path, mask_file, fps):
             if not ok:
                 break
             h, w = m.shape
-            # to normalize the resolution differences
-            s = min(1.0, FLOW_MAX_SIDE / max(h, w))
+            # dis optical flow only accepts single channel 8 bit images
             gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-            gray = cv2.resize(gray, None, fx=s, fy=s, interpolation=cv2.INTER_AREA)
-            plant = cv2.resize(m.astype(np.uint8), gray.shape[::-1], interpolation=cv2.INTER_NEAREST) > 0
             row = {"frame": i, "t_s": i / fps}
             if prev is None:
                 ys, xs = np.mgrid[: gray.shape[0], : gray.shape[1]]
-                xy = np.dstack([xs, ys]).astype(np.float32) / s  # full-size pixel coordinates
+                # full-size pixel coordinates
+                xy = np.dstack([xs, ys]).astype(np.float32)
             else:
                 prev_gray, prev_plant = prev
-                flow = dis.calc(prev_gray, gray, None) / s
+                flow = dis.calc(prev_gray, gray, None)
+                # choosing pixels except the plant
                 bg = cv2.erode((~prev_plant).astype(np.uint8), kernel) > 0
+                # estimating camera motion from the background
                 M = camera_motion(flow, bg, xy)
                 row |= flow_metrics(flow, xy, prev_plant, bg, M)
                 to_first = to_first @ np.linalg.inv(np.vstack([M, [0, 0, 1]]))
@@ -117,7 +119,7 @@ def frame_metrics(video_path, mask_file, fps):
             if len(history) == lag:
                 row["iou_lag"] = iou(stable, history[0])
             history.append(stable)
-            prev = (gray, plant)
+            prev = (gray, m)
             rows.append(row)
     finally:
         cap.release()
