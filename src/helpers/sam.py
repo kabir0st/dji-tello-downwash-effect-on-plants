@@ -145,17 +145,26 @@ def make_prompt(pts, lbl, box=None):
     return prompt
 
 
-def click_prompt(frame, clicker, title):
-    """Returns a prompt dict {"box"?, "points", "labels"}, None (skip) or "quit"."""
+def click_prompt(frame, clicker, title, init=None):
+    """Returns a prompt dict {"box"?, "points", "labels"}, None (skip) or "quit".
+
+    init: an existing prompt to start from (e.g. the saved one), so it can be edited.
+    """
     clicker.set_image(frame)
-    pts, lbl = [], []
+    init = init or {}
+    pts = [list(p) for p in init.get("points", [])]
+    lbl = list(init.get("labels", []))
+    box = list(init["box"]) if init.get("box") else None
     # history of actions for undo: "pt" or ("box", previous_box)
-    state = {"mask": None, "box": None, "drag": None, "cur": None, "hist": []}
+    hist = ([("box", None)] if box else []) + ["pt"] * len(pts)
+    state = {"mask": None, "box": box, "drag": None, "cur": None, "hist": hist}
     s = min(1280 / frame.shape[1], 720 / frame.shape[0], 1.0)
 
     def redo():
         ok = 1 in lbl or state["box"] is not None
         state["mask"] = clicker.predict(pts, lbl, state["box"]) if ok else None
+
+    redo()
 
     def on_mouse(event, x, y, flags, *_):
         if event == cv2.EVENT_LBUTTONDOWN:

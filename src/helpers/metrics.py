@@ -85,13 +85,15 @@ def frame_metrics(video_path, mask_file, fps):
     kernel = np.ones((BG_ERODE, BG_ERODE), np.uint8)
     cap = cv2.VideoCapture(video_path)
     rows, prev = [], None
-    to_first, scale = np.eye(3), 1.0  # current frame -> frame 0, and background zoom since frame 0
+    # current frame -> frame 0, and background zoom since frame 0
+    to_first, scale = np.eye(3), 1.0 
     try:
         for i, m in iter_masks(mask_file):
             ok, frame = cap.read()
             if not ok:
                 break
             h, w = m.shape
+            # to normalize the resolution differences
             s = min(1.0, FLOW_MAX_SIDE / max(h, w))
             gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
             gray = cv2.resize(gray, None, fx=s, fy=s, interpolation=cv2.INTER_AREA)
