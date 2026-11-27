@@ -157,3 +157,7 @@ The raw videos (2 GB) aren't in the repo. They go in `data/p<N>_<plant>/<Referen
 
 - **Kabir Tamari:** data analysis, segmentation and video
 - **Binay Kumar:** experiment setup and drone code
+
+## Acknowledgements
+
+Special thanks to [Martin Cooney](https://www.hh.se/english/information-english/search-staff.html?person=32A50F1D-0935-4B8D-A57D-331126F8A27D) at Halmstad University, who let us use his plants and space to collect the data and guided us through the project.
