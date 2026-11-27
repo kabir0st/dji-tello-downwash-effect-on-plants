@@ -15,7 +15,7 @@ def load_run(run_dir: Path) -> dict:
     return {
         "clip_id": info["clip_id"],
         "height_cm": info["height_cm"],
-        "wind": "_wind" in info["plant_id"],
+        "side_wind": run_dir.name.endswith("_r2"),
         "repeat": info["repeat"],
         "run_info": info,
         "run_dir": run_dir,

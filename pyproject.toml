@@ -5,29 +5,31 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "imageio-ffmpeg>=0.8.1",
     "matplotlib>=3.11.2",
     "numpy>=2.5.4",
     "opencv-python>=5.0.0.93",
     "pandas>=3.1.1",
+    "pillow>=13.0.0",
     "scipy>=1.18.1",
-    "torch>=2.15.0",
-    "torchvision>=0.29.1",
-    "transformers>=5.22.2",
+    # "torch>=2.15.0",
+    # "torchvision>=0.29.1",
+    # "transformers>=5.22.2",
 ]
 
-[tool.uv]
-# ROCm PyTorch wheels are only published for Linux x86_64.
-environments = ["sys_platform == 'linux' and platform_machine == 'x86_64'"]
-# torch's ROCm runtime deps (rocm, rocm-sdk-*, triton-rocm) are only placeholders on
-# PyPI, so take the highest version across both indexes: ROCm packages resolve from
-# the PyTorch index, while everything else keeps its newer PyPI release.
-index-strategy = "unsafe-best-match"
+# [tool.uv]
+# # ROCm PyTorch wheels are only published for Linux x86_64.
+# environments = ["sys_platform == 'linux' and platform_machine == 'x86_64'"]
+# # torch's ROCm runtime deps (rocm, rocm-sdk-*, triton-rocm) are only placeholders on
+# # PyPI, so take the highest version across both indexes: ROCm packages resolve from
+# # the PyTorch index, while everything else keeps its newer PyPI release.
+# index-strategy = "unsafe-best-match"
 
-# Use ROCm 10.0 builds of PyTorch (AMD GPU). They also run on CPU-only machines.
-[tool.uv.sources]
-torch = { index = "pytorch-cuda" }
-torchvision = { index = "pytorch-cuda" }
+# # Use ROCm 10.0 builds of PyTorch (AMD GPU). They also run on CPU-only machines.
+# [tool.uv.sources]
+# torch = { index = "pytorch-cuda" }
+# torchvision = { index = "pytorch-cuda" }
 
-[[tool.uv.index]]
-name = "pytorch-cuda"
-url = "https://download.pytorch.org/whl/cu132"
+# [[tool.uv.index]]
+# name = "pytorch-cuda"
+# url = "https://download.pytorch.org/whl/cu128"

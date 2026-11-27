@@ -14,11 +14,10 @@ FRAMES_DIR = METRICS_DIR / "frames"
 def condition(run):
     if run["run_info"]["run_type"] == "HoverRun":
         return f"hover_{run['height_cm']}"
-    return "wind_ref" if run["wind"] else "ref"
+    return "ref"
 
 
 def load_frames(run, cam, masks, fps):
-    """Per-frame table, cached as JSON. Recomputed when the masks are newer than the cache."""
     path = FRAMES_DIR / f"{run['clip_id']}_{cam}.json"
     if path.exists() and path.stat().st_mtime > masks.stat().st_mtime:
         return pd.read_json(path, orient="records")
@@ -50,6 +49,7 @@ def main():
                 "clip_id": clip_id,
                 "cam": cam,
                 "condition": condition(run),
+                "side_wind": run["side_wind"],
                 "height_cm": run["height_cm"],
                 "repeat": run["repeat"],
                 "fps": fps,
