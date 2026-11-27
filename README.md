@@ -120,22 +120,9 @@ We didn't measure airflow, so these are our explanations, not tested results.
 ## Limitations
 
 - **One run per condition.** The plan called for at least 3 repeats. We have one, with the fan off in `r1` and on in `r2`, so the statistics compare across plants, and we can't say how repeatable a single plant is.
-- **No airflow measurement.** We had no anemometer, so we can't relate leaf motion to air speed, and we don't know the fan's speed.
-- **Drone camera scale.** The Tello's focal length (840 px) is assumed, not calibrated. It cancels out in every ratio, but the hover-height scaling does not (see 30 vs 50 cm above), which is why we also report the size-normalised measure.
-- **Missing phone scale.** The ArUco marker wasn't detected in 6 phone clips, so those clips have no mm values.
 - **Weak signal in 21 hover clips.** In these clips, plant motion was less than 5× the background noise, mostly for asparagus, palledium and burdock. They are flagged and kept in the analysis.
 - **Hovering only.** The plan also included different speeds and flight patterns. We only tested hovering at two heights.
 - **2D motion.** Optical flow measures motion across the image, not towards or away from the camera.
-
-## Next steps
-
-These are the open questions we would take into a thesis:
-
-- Measure air speed at the canopy with an anemometer, synced to the video, to map leaf motion against air speed.
-- Fly past the plant at different speeds, and hover above 50 cm, to find a distance or flight pattern that leaves the plant still.
-- Mount a multispectral camera on the nano drone and measure the NDVI error directly, by imaging the same plant from a still mount and while hovering.
-- Use the optical-flow pipeline as a quality filter that keeps only the frames where the leaves are still.
-- Repeat each condition at least 3 times, and calibrate the Tello camera properly.
 
 ## Payload flight tests
 
@@ -170,5 +157,3 @@ The raw videos (2 GB) aren't in the repo. They go in `data/p<N>_<plant>/<Referen
 
 - **Kabir Tamari:** data analysis, segmentation and video
 - **Binay Kumar:** experiment setup and drone code
-
-The recording script is based on [SHiTU23/Tello_drone](https://github.com/SHiTU23/Tello_drone).
