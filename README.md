@@ -1,6 +1,6 @@
 # DJI Tello downwash on plants
 
-How much does a small drone shake the plant under it? We hovered an 80 g DJI Tello 30 and 50 cm above 8 potted plants and used optical flow to measure how much the leaves move. This matters because nano drones are a natural fit for close-range multispectral imaging (NDVI, NIR) of single plants, and at that range the plant sits right inside the drone's downwash.
+We hovered an 80 g DJI Tello 30 and 50 cm above 8 potted plants and used optical flow to measure how much the leaves move. This matters because nano drones are a natural fit for close-range multispectral imaging (NDVI, NIR) of single plants, and at that range the plant sits right inside the drone's downwash.
 
 ▶ **Video:** https://youtu.be/NWQLOaltLjE
 
