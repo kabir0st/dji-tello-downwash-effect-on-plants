@@ -23,6 +23,10 @@
     → erosion for the ~4 px background margin around the plant
 11. Hartley & Zisserman, *Multiple View Geometry in Computer Vision*, 2nd ed., 2004. [doi:10.1017/CBO9780511811685](https://doi.org/10.1017/CBO9780511811685)
     → pinhole model (apparent size ∝ 1/depth), the basis for `canopy_zoom` (our own adaptation)
+12. Vogel, *Drag and Reconfiguration of Broad Leaves in High Winds*, Journal of Experimental Botany 40(8), 1989. [doi:10.1093/jxb/40.8.941](https://doi.org/10.1093/jxb/40.8.941)
+    → leaves fold and streamline in strong wind, so extra wind adds less force (README, "Why we think it happens" 3)
+13. Leishman, *Principles of Helicopter Aerodynamics*, 2nd ed., Cambridge University Press, 2006, ch. 2
+    → momentum theory, induced velocity v = √(T / 2ρA) (README, "Why we think it happens" 1)
 
 ## Code
 - [OpenCV `cv::DISOpticalFlow`](https://docs.opencv.org/4.x/de/d4f/classcv_1_1DISOpticalFlow.html) → optical flow, MEDIUM preset

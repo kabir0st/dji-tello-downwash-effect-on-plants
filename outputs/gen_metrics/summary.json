@@ -1,0 +1,1777 @@
+{
+ "qa": {
+  "empty mask frames, re-annotate": [],
+  "phone clip without ArUco scale": [
+   "p2_ref_h050_r1_phone",
+   "p2_wind_ref_h050_r1_phone",
+   "p2_hov_h030_r1_phone",
+   "p3_hov_h030_r1_phone",
+   "p4_hov_h030_r1_phone",
+   "p4_hov_h030_r2_phone"
+  ],
+  "hover flow < 5x background residual": [
+   "p2_hov_h030_r1_phone",
+   "p2_hov_h030_r1_video",
+   "p2_hov_h030_r2_video",
+   "p2_hov_h050_r1_video",
+   "p4_hov_h030_r1_video",
+   "p4_hov_h050_r2_video",
+   "p4_hov_h050_r3_video",
+   "p8_hov_h050_r2_video",
+   "p9_hov_h030_r1_phone",
+   "p9_hov_h030_r1_video",
+   "p9_hov_h030_r2_video",
+   "p9_hov_h050_r1_video",
+   "p9_hov_h050_r2_video",
+   "p10_hov_h003_r1_phone",
+   "p10_hov_h003_r1_video",
+   "p10_hov_h030_r1_phone",
+   "p10_hov_h030_r1_video",
+   "p10_hov_h050_r1_phone",
+   "p10_hov_h050_r1_video",
+   "p10_hov_h050_r2_phone",
+   "p10_hov_h050_r2_video"
+  ]
+ },
+ "ratios": [
+  {
+   "comparison": "hover_30 / ref, side wind off",
+   "cam": "phone",
+   "plant": "burdock",
+   "flow_mm_s": null,
+   "flow_rel_s": 4.1458191738,
+   "shape_change": 2.0410813441,
+   "area_cv": 2.2328708007
+  },
+  {
+   "comparison": "hover_30 / ref, side wind off",
+   "cam": "phone",
+   "plant": "lemonbalm",
+   "flow_mm_s": null,
+   "flow_rel_s": 21.3337471672,
+   "shape_change": 10.0793863428,
+   "area_cv": 8.8391715894
+  },
+  {
+   "comparison": "hover_30 / ref, side wind off",
+   "cam": "phone",
+   "plant": "palledium",
+   "flow_mm_s": 4.1545266466,
+   "flow_rel_s": 4.487799622,
+   "shape_change": 1.8936804884,
+   "area_cv": 2.2916586239
+  },
+  {
+   "comparison": "hover_30 / ref, side wind off",
+   "cam": "phone",
+   "plant": "perilla",
+   "flow_mm_s": 13.9610610333,
+   "flow_rel_s": 14.8154732358,
+   "shape_change": 5.3964718462,
+   "area_cv": 1.0056405697
+  },
+  {
+   "comparison": "hover_30 / ref, side wind off",
+   "cam": "phone",
+   "plant": "wild_strawberry",
+   "flow_mm_s": 9.243405375,
+   "flow_rel_s": 9.0722771607,
+   "shape_change": 2.8339730722,
+   "area_cv": 1.3558698534
+  },
+  {
+   "comparison": "hover_30 / ref, side wind off",
+   "cam": "video",
+   "plant": "asparagus",
+   "flow_mm_s": 5.639562729,
+   "flow_rel_s": 8.0703818916,
+   "shape_change": 4.0110937729,
+   "area_cv": 3.8483491819
+  },
+  {
+   "comparison": "hover_30 / ref, side wind off",
+   "cam": "video",
+   "plant": "avocado",
+   "flow_mm_s": 3.9567500791,
+   "flow_rel_s": 4.1502937009,
+   "shape_change": 2.5410046121,
+   "area_cv": 1.8315693635
+  },
+  {
+   "comparison": "hover_30 / ref, side wind off",
+   "cam": "video",
+   "plant": "burdock",
+   "flow_mm_s": 24.5635569743,
+   "flow_rel_s": 37.6436350051,
+   "shape_change": 3.037032478,
+   "area_cv": 4.8668702477
+  },
+  {
+   "comparison": "hover_30 / ref, side wind off",
+   "cam": "video",
+   "plant": "calendula",
+   "flow_mm_s": 27.8657294011,
+   "flow_rel_s": 37.1535048,
+   "shape_change": 18.6690617556,
+   "area_cv": 6.0775357418
+  },
+  {
+   "comparison": "hover_30 / ref, side wind off",
+   "cam": "video",
+   "plant": "lemonbalm",
+   "flow_mm_s": 42.8346888191,
+   "flow_rel_s": 45.2118493742,
+   "shape_change": 27.3908265831,
+   "area_cv": 3.3872128298
+  },
+  {
+   "comparison": "hover_30 / ref, side wind off",
+   "cam": "video",
+   "plant": "palledium",
+   "flow_mm_s": 28.3915056564,
+   "flow_rel_s": 45.9764704994,
+   "shape_change": 6.4541125522,
+   "area_cv": 7.6118133921
+  },
+  {
+   "comparison": "hover_30 / ref, side wind off",
+   "cam": "video",
+   "plant": "perilla",
+   "flow_mm_s": 52.2523139458,
+   "flow_rel_s": 74.4334897186,
+   "shape_change": 14.9054002363,
+   "area_cv": 3.7513180673
+  },
+  {
+   "comparison": "hover_30 / ref, side wind off",
+   "cam": "video",
+   "plant": "wild_strawberry",
+   "flow_mm_s": 82.9731642003,
+   "flow_rel_s": 95.9226549006,
+   "shape_change": 19.9427987312,
+   "area_cv": 5.964795307
+  },
+  {
+   "comparison": "hover_50 / ref, side wind off",
+   "cam": "phone",
+   "plant": "lemonbalm",
+   "flow_mm_s": 24.2071274688,
+   "flow_rel_s": 20.3892982932,
+   "shape_change": 10.3192613637,
+   "area_cv": 4.9332913489
+  },
+  {
+   "comparison": "hover_50 / ref, side wind off",
+   "cam": "phone",
+   "plant": "palledium",
+   "flow_mm_s": 6.0388789475,
+   "flow_rel_s": 6.0882299847,
+   "shape_change": 2.785354644,
+   "area_cv": 1.6728606357
+  },
+  {
+   "comparison": "hover_50 / ref, side wind off",
+   "cam": "phone",
+   "plant": "perilla",
+   "flow_mm_s": 16.458203367,
+   "flow_rel_s": 17.9290840794,
+   "shape_change": 7.0503784472,
+   "area_cv": 1.2042024836
+  },
+  {
+   "comparison": "hover_50 / ref, side wind off",
+   "cam": "phone",
+   "plant": "wild_strawberry",
+   "flow_mm_s": 11.4050544149,
+   "flow_rel_s": 10.8267988322,
+   "shape_change": 2.5970902684,
+   "area_cv": 0.9305365183
+  },
+  {
+   "comparison": "hover_50 / ref, side wind off",
+   "cam": "video",
+   "plant": "asparagus",
+   "flow_mm_s": 6.5540409071,
+   "flow_rel_s": 5.5640845219,
+   "shape_change": 2.5968859035,
+   "area_cv": 1.3624214365
+  },
+  {
+   "comparison": "hover_50 / ref, side wind off",
+   "cam": "video",
+   "plant": "avocado",
+   "flow_mm_s": 6.7765943364,
+   "flow_rel_s": 7.5919400483,
+   "shape_change": 4.9327355458,
+   "area_cv": 2.5088056315
+  },
+  {
+   "comparison": "hover_50 / ref, side wind off",
+   "cam": "video",
+   "plant": "burdock",
+   "flow_mm_s": 54.4284753876,
+   "flow_rel_s": 50.6347275483,
+   "shape_change": 4.9707021858,
+   "area_cv": 15.8739810812
+  },
+  {
+   "comparison": "hover_50 / ref, side wind off",
+   "cam": "video",
+   "plant": "calendula",
+   "flow_mm_s": 42.55849714,
+   "flow_rel_s": 47.6250927012,
+   "shape_change": 18.4168921539,
+   "area_cv": 5.7808727376
+  },
+  {
+   "comparison": "hover_50 / ref, side wind off",
+   "cam": "video",
+   "plant": "lemonbalm",
+   "flow_mm_s": 56.9310899846,
+   "flow_rel_s": 52.4148928794,
+   "shape_change": 34.489458645,
+   "area_cv": 4.4925392795
+  },
+  {
+   "comparison": "hover_50 / ref, side wind off",
+   "cam": "video",
+   "plant": "palledium",
+   "flow_mm_s": 36.2758766063,
+   "flow_rel_s": 37.6670020009,
+   "shape_change": 6.0935719423,
+   "area_cv": 1.3251606192
+  },
+  {
+   "comparison": "hover_50 / ref, side wind off",
+   "cam": "video",
+   "plant": "perilla",
+   "flow_mm_s": 66.6809634033,
+   "flow_rel_s": 67.2838895956,
+   "shape_change": 15.1342861689,
+   "area_cv": 3.4278826884
+  },
+  {
+   "comparison": "hover_50 / ref, side wind off",
+   "cam": "video",
+   "plant": "wild_strawberry",
+   "flow_mm_s": 101.4045556918,
+   "flow_rel_s": 96.8222858833,
+   "shape_change": 17.3798774663,
+   "area_cv": 3.148754911
+  },
+  {
+   "comparison": "hover_30 / hover_50, side wind off",
+   "cam": "phone",
+   "plant": "asparagus",
+   "flow_mm_s": 1.1699837482,
+   "flow_rel_s": 1.5866344159,
+   "shape_change": 2.053346601,
+   "area_cv": 1.5134339164
+  },
+  {
+   "comparison": "hover_30 / hover_50, side wind off",
+   "cam": "phone",
+   "plant": "avocado",
+   "flow_mm_s": 0.6816398594,
+   "flow_rel_s": 0.6719116176,
+   "shape_change": 0.5064678411,
+   "area_cv": 0.7913213251
+  },
+  {
+   "comparison": "hover_30 / hover_50, side wind off",
+   "cam": "phone",
+   "plant": "calendula",
+   "flow_mm_s": null,
+   "flow_rel_s": 0.8731818071,
+   "shape_change": 0.7585021692,
+   "area_cv": 1.0070514618
+  },
+  {
+   "comparison": "hover_30 / hover_50, side wind off",
+   "cam": "phone",
+   "plant": "lemonbalm",
+   "flow_mm_s": null,
+   "flow_rel_s": 1.046320813,
+   "shape_change": 0.9767546327,
+   "area_cv": 1.7917392192
+  },
+  {
+   "comparison": "hover_30 / hover_50, side wind off",
+   "cam": "phone",
+   "plant": "palledium",
+   "flow_mm_s": 0.6879632267,
+   "flow_rel_s": 0.7371271508,
+   "shape_change": 0.6798705122,
+   "area_cv": 1.3699040883
+  },
+  {
+   "comparison": "hover_30 / hover_50, side wind off",
+   "cam": "phone",
+   "plant": "perilla",
+   "flow_mm_s": 0.848273698,
+   "flow_rel_s": 0.8263374286,
+   "shape_change": 0.7654159116,
+   "area_cv": 0.8351091975
+  },
+  {
+   "comparison": "hover_30 / hover_50, side wind off",
+   "cam": "phone",
+   "plant": "wild_strawberry",
+   "flow_mm_s": 0.8104656969,
+   "flow_rel_s": 0.8379464051,
+   "shape_change": 1.0912108473,
+   "area_cv": 1.4570839798
+  },
+  {
+   "comparison": "hover_30 / hover_50, side wind off",
+   "cam": "video",
+   "plant": "asparagus",
+   "flow_mm_s": 0.8604710909,
+   "flow_rel_s": 1.4504420017,
+   "shape_change": 1.5445783611,
+   "area_cv": 2.8246393361
+  },
+  {
+   "comparison": "hover_30 / hover_50, side wind off",
+   "cam": "video",
+   "plant": "avocado",
+   "flow_mm_s": 0.5838847484,
+   "flow_rel_s": 0.546671032,
+   "shape_change": 0.5151309225,
+   "area_cv": 0.7300563027
+  },
+  {
+   "comparison": "hover_30 / hover_50, side wind off",
+   "cam": "video",
+   "plant": "burdock",
+   "flow_mm_s": 0.4512997434,
+   "flow_rel_s": 0.743435125,
+   "shape_change": 0.61098661,
+   "area_cv": 0.3065941822
+  },
+  {
+   "comparison": "hover_30 / hover_50, side wind off",
+   "cam": "video",
+   "plant": "calendula",
+   "flow_mm_s": 0.6547630032,
+   "flow_rel_s": 0.7801245665,
+   "shape_change": 1.0136922994,
+   "area_cv": 1.0513180306
+  },
+  {
+   "comparison": "hover_30 / hover_50, side wind off",
+   "cam": "video",
+   "plant": "lemonbalm",
+   "flow_mm_s": 0.7523953754,
+   "flow_rel_s": 0.8625763956,
+   "shape_change": 0.7941796612,
+   "area_cv": 0.7539639877
+  },
+  {
+   "comparison": "hover_30 / hover_50, side wind off",
+   "cam": "video",
+   "plant": "palledium",
+   "flow_mm_s": 0.7826552605,
+   "flow_rel_s": 1.2206033944,
+   "shape_change": 1.0591673674,
+   "area_cv": 5.7440685165
+  },
+  {
+   "comparison": "hover_30 / hover_50, side wind off",
+   "cam": "video",
+   "plant": "perilla",
+   "flow_mm_s": 0.7836166618,
+   "flow_rel_s": 1.1062602083,
+   "shape_change": 0.9848763311,
+   "area_cv": 1.094354273
+  },
+  {
+   "comparison": "hover_30 / hover_50, side wind off",
+   "cam": "video",
+   "plant": "wild_strawberry",
+   "flow_mm_s": 0.8182390193,
+   "flow_rel_s": 0.9907084307,
+   "shape_change": 1.1474648639,
+   "area_cv": 1.8943345784
+  },
+  {
+   "comparison": "hover_30 / ref, side wind on",
+   "cam": "phone",
+   "plant": "burdock",
+   "flow_mm_s": null,
+   "flow_rel_s": 1.6293277361,
+   "shape_change": 1.3868024665,
+   "area_cv": 1.3769492982
+  },
+  {
+   "comparison": "hover_30 / ref, side wind on",
+   "cam": "phone",
+   "plant": "lemonbalm",
+   "flow_mm_s": 1.248944407,
+   "flow_rel_s": 1.2029319604,
+   "shape_change": 1.0939370584,
+   "area_cv": 1.7293766313
+  },
+  {
+   "comparison": "hover_30 / ref, side wind on",
+   "cam": "phone",
+   "plant": "palledium",
+   "flow_mm_s": 2.4477335577,
+   "flow_rel_s": 2.568735943,
+   "shape_change": 1.7262864924,
+   "area_cv": 1.0735411363
+  },
+  {
+   "comparison": "hover_30 / ref, side wind on",
+   "cam": "phone",
+   "plant": "perilla",
+   "flow_mm_s": 2.1705616954,
+   "flow_rel_s": 2.4841501092,
+   "shape_change": 1.6831294016,
+   "area_cv": 3.0843939249
+  },
+  {
+   "comparison": "hover_30 / ref, side wind on",
+   "cam": "phone",
+   "plant": "wild_strawberry",
+   "flow_mm_s": 1.9431484861,
+   "flow_rel_s": 1.982124726,
+   "shape_change": 1.6233645512,
+   "area_cv": 1.359774316
+  },
+  {
+   "comparison": "hover_30 / ref, side wind on",
+   "cam": "video",
+   "plant": "asparagus",
+   "flow_mm_s": 2.8449461605,
+   "flow_rel_s": 4.1159278091,
+   "shape_change": 2.2859459549,
+   "area_cv": 1.8274819456
+  },
+  {
+   "comparison": "hover_30 / ref, side wind on",
+   "cam": "video",
+   "plant": "avocado",
+   "flow_mm_s": 3.3399532755,
+   "flow_rel_s": 3.4748710785,
+   "shape_change": 1.7162267725,
+   "area_cv": 8.5731490535
+  },
+  {
+   "comparison": "hover_30 / ref, side wind on",
+   "cam": "video",
+   "plant": "burdock",
+   "flow_mm_s": 6.4429839804,
+   "flow_rel_s": 9.6985552112,
+   "shape_change": 2.0818265174,
+   "area_cv": 7.3419869132
+  },
+  {
+   "comparison": "hover_30 / ref, side wind on",
+   "cam": "video",
+   "plant": "calendula",
+   "flow_mm_s": 0.8794472549,
+   "flow_rel_s": 1.1122249401,
+   "shape_change": 1.1957010892,
+   "area_cv": 0.0517215791
+  },
+  {
+   "comparison": "hover_30 / ref, side wind on",
+   "cam": "video",
+   "plant": "lemonbalm",
+   "flow_mm_s": 0.9786804072,
+   "flow_rel_s": 1.1851148583,
+   "shape_change": 2.02756634,
+   "area_cv": 0.8453776826
+  },
+  {
+   "comparison": "hover_30 / ref, side wind on",
+   "cam": "video",
+   "plant": "palledium",
+   "flow_mm_s": 2.0303761012,
+   "flow_rel_s": 3.1106277607,
+   "shape_change": 3.4491335607,
+   "area_cv": 17.694473329
+  },
+  {
+   "comparison": "hover_30 / ref, side wind on",
+   "cam": "video",
+   "plant": "perilla",
+   "flow_mm_s": 0.9046810464,
+   "flow_rel_s": 1.6519203313,
+   "shape_change": 1.2478854891,
+   "area_cv": 1.6268877538
+  },
+  {
+   "comparison": "hover_30 / ref, side wind on",
+   "cam": "video",
+   "plant": "wild_strawberry",
+   "flow_mm_s": 1.7374024646,
+   "flow_rel_s": 1.9506615967,
+   "shape_change": 2.6539366714,
+   "area_cv": 4.8304164348
+  },
+  {
+   "comparison": "hover_50 / ref, side wind on",
+   "cam": "phone",
+   "plant": "lemonbalm",
+   "flow_mm_s": 1.1913123551,
+   "flow_rel_s": 1.0529942041,
+   "shape_change": 0.9627828243,
+   "area_cv": 2.1212405089
+  },
+  {
+   "comparison": "hover_50 / ref, side wind on",
+   "cam": "phone",
+   "plant": "palledium",
+   "flow_mm_s": 3.0063815991,
+   "flow_rel_s": 3.0270651102,
+   "shape_change": 1.8460174719,
+   "area_cv": 0.7661861572
+  },
+  {
+   "comparison": "hover_50 / ref, side wind on",
+   "cam": "phone",
+   "plant": "perilla",
+   "flow_mm_s": 1.9369041325,
+   "flow_rel_s": 2.1075380302,
+   "shape_change": 1.4359869848,
+   "area_cv": 1.8257780567
+  },
+  {
+   "comparison": "hover_50 / ref, side wind on",
+   "cam": "phone",
+   "plant": "wild_strawberry",
+   "flow_mm_s": 2.5524659583,
+   "flow_rel_s": 2.5326181611,
+   "shape_change": 1.6145193192,
+   "area_cv": 0.8164067794
+  },
+  {
+   "comparison": "hover_50 / ref, side wind on",
+   "cam": "video",
+   "plant": "asparagus",
+   "flow_mm_s": 3.2614793135,
+   "flow_rel_s": 2.6428421736,
+   "shape_change": 1.5983975524,
+   "area_cv": 1.2738736265
+  },
+  {
+   "comparison": "hover_50 / ref, side wind on",
+   "cam": "video",
+   "plant": "avocado",
+   "flow_mm_s": 2.7022891471,
+   "flow_rel_s": 3.065628736,
+   "shape_change": 2.149443654,
+   "area_cv": 2.6975017432
+  },
+  {
+   "comparison": "hover_50 / ref, side wind on",
+   "cam": "video",
+   "plant": "calendula",
+   "flow_mm_s": 1.1765756198,
+   "flow_rel_s": 1.1246931372,
+   "shape_change": 1.0203719833,
+   "area_cv": 0.1809922585
+  },
+  {
+   "comparison": "hover_50 / ref, side wind on",
+   "cam": "video",
+   "plant": "lemonbalm",
+   "flow_mm_s": 1.225473478,
+   "flow_rel_s": 1.3112852905,
+   "shape_change": 2.2381416283,
+   "area_cv": 2.2032598335
+  },
+  {
+   "comparison": "hover_50 / ref, side wind on",
+   "cam": "video",
+   "plant": "palledium",
+   "flow_mm_s": 2.937074124,
+   "flow_rel_s": 3.1268169303,
+   "shape_change": 3.1501006625,
+   "area_cv": 6.0444949598
+  },
+  {
+   "comparison": "hover_50 / ref, side wind on",
+   "cam": "video",
+   "plant": "perilla",
+   "flow_mm_s": 1.2875041208,
+   "flow_rel_s": 1.4108704418,
+   "shape_change": 1.0957489269,
+   "area_cv": 1.5294666042
+  },
+  {
+   "comparison": "hover_50 / ref, side wind on",
+   "cam": "video",
+   "plant": "wild_strawberry",
+   "flow_mm_s": 2.1346635268,
+   "flow_rel_s": 2.1686186557,
+   "shape_change": 2.6502728512,
+   "area_cv": 2.1609694275
+  },
+  {
+   "comparison": "hover_30 / hover_50, side wind on",
+   "cam": "phone",
+   "plant": "asparagus",
+   "flow_mm_s": 0.9612379041,
+   "flow_rel_s": 0.9887760694,
+   "shape_change": 1.4534170977,
+   "area_cv": 1.0101620001
+  },
+  {
+   "comparison": "hover_30 / hover_50, side wind on",
+   "cam": "phone",
+   "plant": "avocado",
+   "flow_mm_s": 0.9683772353,
+   "flow_rel_s": 1.0864707073,
+   "shape_change": 0.9969867605,
+   "area_cv": 2.9629476953
+  },
+  {
+   "comparison": "hover_30 / hover_50, side wind on",
+   "cam": "phone",
+   "plant": "calendula",
+   "flow_mm_s": null,
+   "flow_rel_s": 1.0340573339,
+   "shape_change": 1.0098914972,
+   "area_cv": 1.4651155126
+  },
+  {
+   "comparison": "hover_30 / hover_50, side wind on",
+   "cam": "phone",
+   "plant": "lemonbalm",
+   "flow_mm_s": 1.0483769446,
+   "flow_rel_s": 1.1423918153,
+   "shape_change": 1.1362241108,
+   "area_cv": 0.8152666442
+  },
+  {
+   "comparison": "hover_30 / hover_50, side wind on",
+   "cam": "phone",
+   "plant": "palledium",
+   "flow_mm_s": 0.814179264,
+   "flow_rel_s": 0.8485895907,
+   "shape_change": 0.9351409283,
+   "area_cv": 1.4011492197
+  },
+  {
+   "comparison": "hover_30 / hover_50, side wind on",
+   "cam": "phone",
+   "plant": "perilla",
+   "flow_mm_s": 1.1206345523,
+   "flow_rel_s": 1.1786976432,
+   "shape_change": 1.172106307,
+   "area_cv": 1.6893586346
+  },
+  {
+   "comparison": "hover_30 / hover_50, side wind on",
+   "cam": "phone",
+   "plant": "wild_strawberry",
+   "flow_mm_s": 0.7612828213,
+   "flow_rel_s": 0.7826385977,
+   "shape_change": 1.0054785545,
+   "area_cv": 1.6655598046
+  },
+  {
+   "comparison": "hover_30 / hover_50, side wind on",
+   "cam": "video",
+   "plant": "asparagus",
+   "flow_mm_s": 0.8722870474,
+   "flow_rel_s": 1.557386911,
+   "shape_change": 1.4301485581,
+   "area_cv": 1.4345865301
+  },
+  {
+   "comparison": "hover_30 / hover_50, side wind on",
+   "cam": "video",
+   "plant": "avocado",
+   "flow_mm_s": 1.2359718349,
+   "flow_rel_s": 1.1334937717,
+   "shape_change": 0.7984516222,
+   "area_cv": 3.1781810985
+  },
+  {
+   "comparison": "hover_30 / hover_50, side wind on",
+   "cam": "video",
+   "plant": "calendula",
+   "flow_mm_s": 0.7474634355,
+   "flow_rel_s": 0.9889141342,
+   "shape_change": 1.1718286162,
+   "area_cv": 0.2857668032
+  },
+  {
+   "comparison": "hover_30 / hover_50, side wind on",
+   "cam": "video",
+   "plant": "lemonbalm",
+   "flow_mm_s": 0.7986141069,
+   "flow_rel_s": 0.903781097,
+   "shape_change": 0.9059151192,
+   "area_cv": 0.3836940472
+  },
+  {
+   "comparison": "hover_30 / hover_50, side wind on",
+   "cam": "video",
+   "plant": "palledium",
+   "flow_mm_s": 0.6912920871,
+   "flow_rel_s": 0.994822476,
+   "shape_change": 1.0949280452,
+   "area_cv": 2.9273700196
+  },
+  {
+   "comparison": "hover_30 / hover_50, side wind on",
+   "cam": "video",
+   "plant": "perilla",
+   "flow_mm_s": 0.7026626415,
+   "flow_rel_s": 1.1708518956,
+   "shape_change": 1.1388425382,
+   "area_cv": 1.06369616
+  },
+  {
+   "comparison": "hover_30 / hover_50, side wind on",
+   "cam": "video",
+   "plant": "wild_strawberry",
+   "flow_mm_s": 0.8138999157,
+   "flow_rel_s": 0.8994949811,
+   "shape_change": 1.0013824313,
+   "area_cv": 2.2353006819
+  },
+  {
+   "comparison": "side wind on / off, ref",
+   "cam": "phone",
+   "plant": "burdock",
+   "flow_mm_s": null,
+   "flow_rel_s": 6.8978980269,
+   "shape_change": 4.3316685792,
+   "area_cv": 4.1837833661
+  },
+  {
+   "comparison": "side wind on / off, ref",
+   "cam": "phone",
+   "plant": "lemonbalm",
+   "flow_mm_s": 19.4446152378,
+   "flow_rel_s": 20.5972745978,
+   "shape_change": 10.221560964,
+   "area_cv": 4.0468411893
+  },
+  {
+   "comparison": "side wind on / off, ref",
+   "cam": "phone",
+   "plant": "palledium",
+   "flow_mm_s": 2.6581012988,
+   "flow_rel_s": 2.598423675,
+   "shape_change": 1.865216063,
+   "area_cv": 1.58562367
+  },
+  {
+   "comparison": "side wind on / off, ref",
+   "cam": "phone",
+   "plant": "perilla",
+   "flow_mm_s": 12.6061277133,
+   "flow_rel_s": 11.4073438083,
+   "shape_change": 6.2723730922,
+   "area_cv": 0.8329247573
+  },
+  {
+   "comparison": "side wind on / off, ref",
+   "cam": "phone",
+   "plant": "wild_strawberry",
+   "flow_mm_s": 7.713182441,
+   "flow_rel_s": 7.2481941848,
+   "shape_change": 2.681425872,
+   "area_cv": 1.0930027831
+  },
+  {
+   "comparison": "side wind on / off, ref",
+   "cam": "video",
+   "plant": "asparagus",
+   "flow_mm_s": 2.7166074007,
+   "flow_rel_s": 2.4184481708,
+   "shape_change": 1.9998401776,
+   "area_cv": 2.7582618727
+  },
+  {
+   "comparison": "side wind on / off, ref",
+   "cam": "video",
+   "plant": "avocado",
+   "flow_mm_s": 2.2687262328,
+   "flow_rel_s": 2.3568185389,
+   "shape_change": 2.3079889541,
+   "area_cv": 0.6247288757
+  },
+  {
+   "comparison": "side wind on / off, ref",
+   "cam": "video",
+   "plant": "burdock",
+   "flow_mm_s": 3.4105015666,
+   "flow_rel_s": 3.4742402939,
+   "shape_change": 1.1940995542,
+   "area_cv": 0.6116347134
+  },
+  {
+   "comparison": "side wind on / off, ref",
+   "cam": "video",
+   "plant": "calendula",
+   "flow_mm_s": 51.4059958767,
+   "flow_rel_s": 52.6732050309,
+   "shape_change": 22.4773157857,
+   "area_cv": 125.3404706274
+  },
+  {
+   "comparison": "side wind on / off, ref",
+   "cam": "video",
+   "plant": "lemonbalm",
+   "flow_mm_s": 45.245105805,
+   "flow_rel_s": 38.8716344989,
+   "shape_change": 13.6129797704,
+   "area_cv": 3.6762582402
+  },
+  {
+   "comparison": "side wind on / off, ref",
+   "cam": "video",
+   "plant": "palledium",
+   "flow_mm_s": 18.6108771005,
+   "flow_rel_s": 18.7673866995,
+   "shape_change": 2.5603999923,
+   "area_cv": 0.3640649476
+  },
+  {
+   "comparison": "side wind on / off, ref",
+   "cam": "video",
+   "plant": "perilla",
+   "flow_mm_s": 60.0649657933,
+   "flow_rel_s": 59.7610867069,
+   "shape_change": 17.4672608056,
+   "area_cv": 3.0634550534
+  },
+  {
+   "comparison": "side wind on / off, ref",
+   "cam": "video",
+   "plant": "wild_strawberry",
+   "flow_mm_s": 69.7923996234,
+   "flow_rel_s": 69.6072944003,
+   "shape_change": 7.0815491913,
+   "area_cv": 0.9250067415
+  },
+  {
+   "comparison": "side wind on / off, hover_30",
+   "cam": "phone",
+   "plant": "asparagus",
+   "flow_mm_s": 0.9811787614,
+   "flow_rel_s": 0.6726972418,
+   "shape_change": 0.8025362787,
+   "area_cv": 0.3992999274
+  },
+  {
+   "comparison": "side wind on / off, hover_30",
+   "cam": "phone",
+   "plant": "avocado",
+   "flow_mm_s": 1.4542004839,
+   "flow_rel_s": 1.6037518315,
+   "shape_change": 2.0048998938,
+   "area_cv": 2.7634696672
+  },
+  {
+   "comparison": "side wind on / off, hover_30",
+   "cam": "phone",
+   "plant": "burdock",
+   "flow_mm_s": null,
+   "flow_rel_s": 2.7109085333,
+   "shape_change": 2.9431304573,
+   "area_cv": 2.5800227976
+  },
+  {
+   "comparison": "side wind on / off, hover_30",
+   "cam": "phone",
+   "plant": "calendula",
+   "flow_mm_s": null,
+   "flow_rel_s": 1.5328957828,
+   "shape_change": 1.7483469472,
+   "area_cv": 3.6725793168
+  },
+  {
+   "comparison": "side wind on / off, hover_30",
+   "cam": "phone",
+   "plant": "lemonbalm",
+   "flow_mm_s": null,
+   "flow_rel_s": 1.1614049664,
+   "shape_change": 1.1093675699,
+   "area_cv": 0.791761141
+  },
+  {
+   "comparison": "side wind on / off, hover_30",
+   "cam": "phone",
+   "plant": "palledium",
+   "flow_mm_s": 1.5660806398,
+   "flow_rel_s": 1.4872910672,
+   "shape_change": 1.7003382116,
+   "area_cv": 0.7427948555
+  },
+  {
+   "comparison": "side wind on / off, hover_30",
+   "cam": "phone",
+   "plant": "perilla",
+   "flow_mm_s": 1.9599067633,
+   "flow_rel_s": 1.9126999128,
+   "shape_change": 1.9563181038,
+   "area_cv": 2.554658333
+  },
+  {
+   "comparison": "side wind on / off, hover_30",
+   "cam": "phone",
+   "plant": "wild_strawberry",
+   "flow_mm_s": 1.6214650526,
+   "flow_rel_s": 1.5835963406,
+   "shape_change": 1.5359820282,
+   "area_cv": 1.0961502743
+  },
+  {
+   "comparison": "side wind on / off, hover_30",
+   "cam": "video",
+   "plant": "asparagus",
+   "flow_mm_s": 1.3704257166,
+   "flow_rel_s": 1.2334184695,
+   "shape_change": 1.1397206904,
+   "area_cv": 1.3098275482
+  },
+  {
+   "comparison": "side wind on / off, hover_30",
+   "cam": "video",
+   "plant": "avocado",
+   "flow_mm_s": 1.915066522,
+   "flow_rel_s": 1.9732677175,
+   "shape_change": 1.558845039,
+   "area_cv": 2.924210175
+  },
+  {
+   "comparison": "side wind on / off, hover_30",
+   "cam": "video",
+   "plant": "burdock",
+   "flow_mm_s": 0.8945694217,
+   "flow_rel_s": 0.8951077998,
+   "shape_change": 0.8185319499,
+   "area_cv": 0.922690319
+  },
+  {
+   "comparison": "side wind on / off, hover_30",
+   "cam": "video",
+   "plant": "calendula",
+   "flow_mm_s": 1.6223821494,
+   "flow_rel_s": 1.5768216922,
+   "shape_change": 1.439609088,
+   "area_cv": 1.0666834952
+  },
+  {
+   "comparison": "side wind on / off, hover_30",
+   "cam": "video",
+   "plant": "lemonbalm",
+   "flow_mm_s": 1.0337532452,
+   "flow_rel_s": 1.0189220801,
+   "shape_change": 1.0076811478,
+   "area_cv": 0.9175173891
+  },
+  {
+   "comparison": "side wind on / off, hover_30",
+   "cam": "video",
+   "plant": "palledium",
+   "flow_mm_s": 1.3309290654,
+   "flow_rel_s": 1.2697441415,
+   "shape_change": 1.3682998973,
+   "area_cv": 0.8463078603
+  },
+  {
+   "comparison": "side wind on / off, hover_30",
+   "cam": "video",
+   "plant": "perilla",
+   "flow_mm_s": 1.0399469804,
+   "flow_rel_s": 1.326292164,
+   "shape_change": 1.4623653809,
+   "area_cv": 1.3285723634
+  },
+  {
+   "comparison": "side wind on / off, hover_30",
+   "cam": "video",
+   "plant": "wild_strawberry",
+   "flow_mm_s": 1.4614060858,
+   "flow_rel_s": 1.4155183275,
+   "shape_change": 0.9423944624,
+   "area_cv": 0.7490898742
+  },
+  {
+   "comparison": "side wind on / off, hover_50",
+   "cam": "phone",
+   "plant": "asparagus",
+   "flow_mm_s": 1.194255033,
+   "flow_rel_s": 1.0794401568,
+   "shape_change": 1.1338005743,
+   "area_cv": 0.598234791
+  },
+  {
+   "comparison": "side wind on / off, hover_50",
+   "cam": "phone",
+   "plant": "avocado",
+   "flow_mm_s": 1.0236104044,
+   "flow_rel_s": 0.99181642,
+   "shape_change": 1.0184862638,
+   "area_cv": 0.7380462646
+  },
+  {
+   "comparison": "side wind on / off, hover_50",
+   "cam": "phone",
+   "plant": "calendula",
+   "flow_mm_s": 1.3372961108,
+   "flow_rel_s": 1.294412472,
+   "shape_change": 1.3131360703,
+   "area_cv": 2.5243582077
+  },
+  {
+   "comparison": "side wind on / off, hover_50",
+   "cam": "phone",
+   "plant": "lemonbalm",
+   "flow_mm_s": 0.9569334653,
+   "flow_rel_s": 1.0637350271,
+   "shape_change": 0.9536674174,
+   "area_cv": 1.7400803757
+  },
+  {
+   "comparison": "side wind on / off, hover_50",
+   "cam": "phone",
+   "plant": "palledium",
+   "flow_mm_s": 1.323303034,
+   "flow_rel_s": 1.2919350399,
+   "shape_change": 1.2361878042,
+   "area_cv": 0.7262307933
+  },
+  {
+   "comparison": "side wind on / off, hover_50",
+   "cam": "phone",
+   "plant": "perilla",
+   "flow_mm_s": 1.4835678183,
+   "flow_rel_s": 1.3409168473,
+   "shape_change": 1.2775266167,
+   "area_cv": 1.2628571735
+  },
+  {
+   "comparison": "side wind on / off, hover_50",
+   "cam": "phone",
+   "plant": "wild_strawberry",
+   "flow_mm_s": 1.7262202261,
+   "flow_rel_s": 1.69550654,
+   "shape_change": 1.6669477861,
+   "area_cv": 0.9589466555
+  },
+  {
+   "comparison": "side wind on / off, hover_50",
+   "cam": "video",
+   "plant": "asparagus",
+   "flow_mm_s": 1.3518619987,
+   "flow_rel_s": 1.1487202962,
+   "shape_change": 1.2309126253,
+   "area_cv": 2.5789942527
+  },
+  {
+   "comparison": "side wind on / off, hover_50",
+   "cam": "video",
+   "plant": "avocado",
+   "flow_mm_s": 0.9046954816,
+   "flow_rel_s": 0.9516843642,
+   "shape_change": 1.0057081238,
+   "area_cv": 0.6717169357
+  },
+  {
+   "comparison": "side wind on / off, hover_50",
+   "cam": "video",
+   "plant": "calendula",
+   "flow_mm_s": 1.4211742783,
+   "flow_rel_s": 1.2439071266,
+   "shape_change": 1.2453362433,
+   "area_cv": 3.924261247
+  },
+  {
+   "comparison": "side wind on / off, hover_50",
+   "cam": "video",
+   "plant": "lemonbalm",
+   "flow_mm_s": 0.9739261481,
+   "flow_rel_s": 0.972467933,
+   "shape_change": 0.8833938805,
+   "area_cv": 1.8029340679
+  },
+  {
+   "comparison": "side wind on / off, hover_50",
+   "cam": "video",
+   "plant": "palledium",
+   "flow_mm_s": 1.5068285227,
+   "flow_rel_s": 1.5579201782,
+   "shape_change": 1.3236108129,
+   "area_cv": 1.6606203872
+  },
+  {
+   "comparison": "side wind on / off, hover_50",
+   "cam": "video",
+   "plant": "perilla",
+   "flow_mm_s": 1.1597596529,
+   "flow_rel_s": 1.2531253962,
+   "shape_change": 1.2646603923,
+   "area_cv": 1.3668648036
+  },
+  {
+   "comparison": "side wind on / off, hover_50",
+   "cam": "video",
+   "plant": "wild_strawberry",
+   "flow_mm_s": 1.4691972063,
+   "flow_rel_s": 1.5590592169,
+   "shape_change": 1.0798716851,
+   "area_cv": 0.6348259376
+  }
+ ],
+ "tests": [
+  {
+   "cam": "phone",
+   "comparison": "hover_30 / ref, side wind off",
+   "metric": "flow_mm_s",
+   "plants": 3,
+   "increased": 3,
+   "median_x": 9.243405375,
+   "wilcoxon_p": null
+  },
+  {
+   "cam": "phone",
+   "comparison": "hover_30 / ref, side wind off",
+   "metric": "flow_rel_s",
+   "plants": 5,
+   "increased": 5,
+   "median_x": 9.0722771607,
+   "wilcoxon_p": null
+  },
+  {
+   "cam": "phone",
+   "comparison": "hover_30 / ref, side wind off",
+   "metric": "shape_change",
+   "plants": 5,
+   "increased": 5,
+   "median_x": 2.8339730722,
+   "wilcoxon_p": null
+  },
+  {
+   "cam": "phone",
+   "comparison": "hover_30 / ref, side wind off",
+   "metric": "area_cv",
+   "plants": 5,
+   "increased": 5,
+   "median_x": 2.2328708007,
+   "wilcoxon_p": null
+  },
+  {
+   "cam": "video",
+   "comparison": "hover_30 / ref, side wind off",
+   "metric": "flow_mm_s",
+   "plants": 8,
+   "increased": 8,
+   "median_x": 28.1273890347,
+   "wilcoxon_p": 0.0078125
+  },
+  {
+   "cam": "video",
+   "comparison": "hover_30 / ref, side wind off",
+   "metric": "flow_rel_s",
+   "plants": 8,
+   "increased": 8,
+   "median_x": 41.2545555757,
+   "wilcoxon_p": 0.0078125
+  },
+  {
+   "cam": "video",
+   "comparison": "hover_30 / ref, side wind off",
+   "metric": "shape_change",
+   "plants": 8,
+   "increased": 8,
+   "median_x": 9.8082175119,
+   "wilcoxon_p": 0.0078125
+  },
+  {
+   "cam": "video",
+   "comparison": "hover_30 / ref, side wind off",
+   "metric": "area_cv",
+   "plants": 8,
+   "increased": 8,
+   "median_x": 4.3277495464,
+   "wilcoxon_p": 0.0078125
+  },
+  {
+   "cam": "phone",
+   "comparison": "hover_50 / ref, side wind off",
+   "metric": "flow_mm_s",
+   "plants": 4,
+   "increased": 4,
+   "median_x": 13.700609657,
+   "wilcoxon_p": null
+  },
+  {
+   "cam": "phone",
+   "comparison": "hover_50 / ref, side wind off",
+   "metric": "flow_rel_s",
+   "plants": 4,
+   "increased": 4,
+   "median_x": 13.9325010882,
+   "wilcoxon_p": null
+  },
+  {
+   "cam": "phone",
+   "comparison": "hover_50 / ref, side wind off",
+   "metric": "shape_change",
+   "plants": 4,
+   "increased": 4,
+   "median_x": 4.4314562335,
+   "wilcoxon_p": null
+  },
+  {
+   "cam": "phone",
+   "comparison": "hover_50 / ref, side wind off",
+   "metric": "area_cv",
+   "plants": 4,
+   "increased": 3,
+   "median_x": 1.41931777,
+   "wilcoxon_p": null
+  },
+  {
+   "cam": "video",
+   "comparison": "hover_50 / ref, side wind off",
+   "metric": "flow_mm_s",
+   "plants": 8,
+   "increased": 8,
+   "median_x": 48.1289321938,
+   "wilcoxon_p": 0.0078125
+  },
+  {
+   "cam": "video",
+   "comparison": "hover_50 / ref, side wind off",
+   "metric": "flow_rel_s",
+   "plants": 8,
+   "increased": 8,
+   "median_x": 49.1068589241,
+   "wilcoxon_p": 0.0078125
+  },
+  {
+   "cam": "video",
+   "comparison": "hover_50 / ref, side wind off",
+   "metric": "shape_change",
+   "plants": 8,
+   "increased": 8,
+   "median_x": 9.6032214161,
+   "wilcoxon_p": 0.0078125
+  },
+  {
+   "cam": "video",
+   "comparison": "hover_50 / ref, side wind off",
+   "metric": "area_cv",
+   "plants": 8,
+   "increased": 8,
+   "median_x": 3.2853557569,
+   "wilcoxon_p": 0.0078125
+  },
+  {
+   "cam": "phone",
+   "comparison": "hover_30 / hover_50, side wind off",
+   "metric": "flow_mm_s",
+   "plants": 5,
+   "increased": 1,
+   "median_x": 0.8104656969,
+   "wilcoxon_p": null
+  },
+  {
+   "cam": "phone",
+   "comparison": "hover_30 / hover_50, side wind off",
+   "metric": "flow_rel_s",
+   "plants": 7,
+   "increased": 2,
+   "median_x": 0.8379464051,
+   "wilcoxon_p": 0.375
+  },
+  {
+   "cam": "phone",
+   "comparison": "hover_30 / hover_50, side wind off",
+   "metric": "shape_change",
+   "plants": 7,
+   "increased": 2,
+   "median_x": 0.7654159116,
+   "wilcoxon_p": 0.46875
+  },
+  {
+   "cam": "phone",
+   "comparison": "hover_30 / hover_50, side wind off",
+   "metric": "area_cv",
+   "plants": 7,
+   "increased": 5,
+   "median_x": 1.3699040883,
+   "wilcoxon_p": 0.15625
+  },
+  {
+   "cam": "video",
+   "comparison": "hover_30 / hover_50, side wind off",
+   "metric": "flow_mm_s",
+   "plants": 8,
+   "increased": 0,
+   "median_x": 0.767376178,
+   "wilcoxon_p": 0.0078125
+  },
+  {
+   "cam": "video",
+   "comparison": "hover_30 / hover_50, side wind off",
+   "metric": "flow_rel_s",
+   "plants": 8,
+   "increased": 3,
+   "median_x": 0.9244250685,
+   "wilcoxon_p": 0.546875
+  },
+  {
+   "cam": "video",
+   "comparison": "hover_30 / hover_50, side wind off",
+   "metric": "shape_change",
+   "plants": 8,
+   "increased": 4,
+   "median_x": 0.9991804405,
+   "wilcoxon_p": 0.640625
+  },
+  {
+   "cam": "video",
+   "comparison": "hover_30 / hover_50, side wind off",
+   "metric": "area_cv",
+   "plants": 8,
+   "increased": 5,
+   "median_x": 1.0726203331,
+   "wilcoxon_p": 0.640625
+  },
+  {
+   "cam": "phone",
+   "comparison": "hover_30 / ref, side wind on",
+   "metric": "flow_mm_s",
+   "plants": 4,
+   "increased": 4,
+   "median_x": 2.0537097342,
+   "wilcoxon_p": null
+  },
+  {
+   "cam": "phone",
+   "comparison": "hover_30 / ref, side wind on",
+   "metric": "flow_rel_s",
+   "plants": 5,
+   "increased": 5,
+   "median_x": 1.982124726,
+   "wilcoxon_p": null
+  },
+  {
+   "cam": "phone",
+   "comparison": "hover_30 / ref, side wind on",
+   "metric": "shape_change",
+   "plants": 5,
+   "increased": 5,
+   "median_x": 1.6233645512,
+   "wilcoxon_p": null
+  },
+  {
+   "cam": "phone",
+   "comparison": "hover_30 / ref, side wind on",
+   "metric": "area_cv",
+   "plants": 5,
+   "increased": 5,
+   "median_x": 1.3769492982,
+   "wilcoxon_p": null
+  },
+  {
+   "cam": "video",
+   "comparison": "hover_30 / ref, side wind on",
+   "metric": "flow_mm_s",
+   "plants": 8,
+   "increased": 5,
+   "median_x": 1.8781854121,
+   "wilcoxon_p": 0.109375
+  },
+  {
+   "cam": "video",
+   "comparison": "hover_30 / ref, side wind on",
+   "metric": "flow_rel_s",
+   "plants": 8,
+   "increased": 8,
+   "median_x": 2.4632868518,
+   "wilcoxon_p": 0.0078125
+  },
+  {
+   "cam": "video",
+   "comparison": "hover_30 / ref, side wind on",
+   "metric": "shape_change",
+   "plants": 8,
+   "increased": 8,
+   "median_x": 2.0545173089,
+   "wilcoxon_p": 0.0078125
+  },
+  {
+   "cam": "video",
+   "comparison": "hover_30 / ref, side wind on",
+   "metric": "area_cv",
+   "plants": 8,
+   "increased": 6,
+   "median_x": 2.9711107055,
+   "wilcoxon_p": 0.25
+  },
+  {
+   "cam": "phone",
+   "comparison": "hover_50 / ref, side wind on",
+   "metric": "flow_mm_s",
+   "plants": 4,
+   "increased": 4,
+   "median_x": 2.2234841719,
+   "wilcoxon_p": null
+  },
+  {
+   "cam": "phone",
+   "comparison": "hover_50 / ref, side wind on",
+   "metric": "flow_rel_s",
+   "plants": 4,
+   "increased": 4,
+   "median_x": 2.3103222915,
+   "wilcoxon_p": null
+  },
+  {
+   "cam": "phone",
+   "comparison": "hover_50 / ref, side wind on",
+   "metric": "shape_change",
+   "plants": 4,
+   "increased": 3,
+   "median_x": 1.5226387388,
+   "wilcoxon_p": null
+  },
+  {
+   "cam": "phone",
+   "comparison": "hover_50 / ref, side wind on",
+   "metric": "area_cv",
+   "plants": 4,
+   "increased": 2,
+   "median_x": 1.2208921259,
+   "wilcoxon_p": null
+  },
+  {
+   "cam": "video",
+   "comparison": "hover_50 / ref, side wind on",
+   "metric": "flow_mm_s",
+   "plants": 7,
+   "increased": 7,
+   "median_x": 2.1346635268,
+   "wilcoxon_p": 0.015625
+  },
+  {
+   "cam": "video",
+   "comparison": "hover_50 / ref, side wind on",
+   "metric": "flow_rel_s",
+   "plants": 7,
+   "increased": 7,
+   "median_x": 2.1686186557,
+   "wilcoxon_p": 0.015625
+  },
+  {
+   "cam": "video",
+   "comparison": "hover_50 / ref, side wind on",
+   "metric": "shape_change",
+   "plants": 7,
+   "increased": 7,
+   "median_x": 2.149443654,
+   "wilcoxon_p": 0.015625
+  },
+  {
+   "cam": "video",
+   "comparison": "hover_50 / ref, side wind on",
+   "metric": "area_cv",
+   "plants": 7,
+   "increased": 6,
+   "median_x": 2.1609694275,
+   "wilcoxon_p": 0.21875
+  },
+  {
+   "cam": "phone",
+   "comparison": "hover_30 / hover_50, side wind on",
+   "metric": "flow_mm_s",
+   "plants": 6,
+   "increased": 2,
+   "median_x": 0.964800966,
+   "wilcoxon_p": 0.5625
+  },
+  {
+   "cam": "phone",
+   "comparison": "hover_30 / hover_50, side wind on",
+   "metric": "flow_rel_s",
+   "plants": 7,
+   "increased": 4,
+   "median_x": 1.0340573339,
+   "wilcoxon_p": 0.9375
+  },
+  {
+   "cam": "phone",
+   "comparison": "hover_30 / hover_50, side wind on",
+   "metric": "shape_change",
+   "plants": 7,
+   "increased": 5,
+   "median_x": 1.0098914972,
+   "wilcoxon_p": 0.15625
+  },
+  {
+   "cam": "phone",
+   "comparison": "hover_30 / hover_50, side wind on",
+   "metric": "area_cv",
+   "plants": 7,
+   "increased": 6,
+   "median_x": 1.4651155126,
+   "wilcoxon_p": 0.046875
+  },
+  {
+   "cam": "video",
+   "comparison": "hover_30 / hover_50, side wind on",
+   "metric": "flow_mm_s",
+   "plants": 7,
+   "increased": 1,
+   "median_x": 0.7986141069,
+   "wilcoxon_p": 0.078125
+  },
+  {
+   "cam": "video",
+   "comparison": "hover_30 / hover_50, side wind on",
+   "metric": "flow_rel_s",
+   "plants": 7,
+   "increased": 3,
+   "median_x": 0.994822476,
+   "wilcoxon_p": 0.578125
+  },
+  {
+   "cam": "video",
+   "comparison": "hover_30 / hover_50, side wind on",
+   "metric": "shape_change",
+   "plants": 7,
+   "increased": 5,
+   "median_x": 1.0949280452,
+   "wilcoxon_p": 0.46875
+  },
+  {
+   "cam": "video",
+   "comparison": "hover_30 / hover_50, side wind on",
+   "metric": "area_cv",
+   "plants": 7,
+   "increased": 5,
+   "median_x": 1.4345865301,
+   "wilcoxon_p": 0.6875
+  },
+  {
+   "cam": "phone",
+   "comparison": "side wind on / off, ref",
+   "metric": "flow_mm_s",
+   "plants": 4,
+   "increased": 4,
+   "median_x": 9.8606978925,
+   "wilcoxon_p": null
+  },
+  {
+   "cam": "phone",
+   "comparison": "side wind on / off, ref",
+   "metric": "flow_rel_s",
+   "plants": 5,
+   "increased": 5,
+   "median_x": 7.2481941848,
+   "wilcoxon_p": null
+  },
+  {
+   "cam": "phone",
+   "comparison": "side wind on / off, ref",
+   "metric": "shape_change",
+   "plants": 5,
+   "increased": 5,
+   "median_x": 4.3316685792,
+   "wilcoxon_p": null
+  },
+  {
+   "cam": "phone",
+   "comparison": "side wind on / off, ref",
+   "metric": "area_cv",
+   "plants": 5,
+   "increased": 4,
+   "median_x": 1.58562367,
+   "wilcoxon_p": null
+  },
+  {
+   "cam": "video",
+   "comparison": "side wind on / off, ref",
+   "metric": "flow_mm_s",
+   "plants": 8,
+   "increased": 8,
+   "median_x": 29.0181168158,
+   "wilcoxon_p": 0.0078125
+  },
+  {
+   "cam": "video",
+   "comparison": "side wind on / off, ref",
+   "metric": "flow_rel_s",
+   "plants": 8,
+   "increased": 8,
+   "median_x": 27.0096093323,
+   "wilcoxon_p": 0.0078125
+  },
+  {
+   "cam": "video",
+   "comparison": "side wind on / off, ref",
+   "metric": "shape_change",
+   "plants": 8,
+   "increased": 8,
+   "median_x": 4.2581214749,
+   "wilcoxon_p": 0.0078125
+  },
+  {
+   "cam": "video",
+   "comparison": "side wind on / off, ref",
+   "metric": "area_cv",
+   "plants": 8,
+   "increased": 4,
+   "median_x": 1.5973136283,
+   "wilcoxon_p": 0.3125
+  },
+  {
+   "cam": "phone",
+   "comparison": "side wind on / off, hover_30",
+   "metric": "flow_mm_s",
+   "plants": 5,
+   "increased": 4,
+   "median_x": 1.5660806398,
+   "wilcoxon_p": null
+  },
+  {
+   "cam": "phone",
+   "comparison": "side wind on / off, hover_30",
+   "metric": "flow_rel_s",
+   "plants": 8,
+   "increased": 7,
+   "median_x": 1.5580398429,
+   "wilcoxon_p": 0.0234375
+  },
+  {
+   "cam": "phone",
+   "comparison": "side wind on / off, hover_30",
+   "metric": "shape_change",
+   "plants": 8,
+   "increased": 7,
+   "median_x": 1.7241754903,
+   "wilcoxon_p": 0.0234375
+  },
+  {
+   "cam": "phone",
+   "comparison": "side wind on / off, hover_30",
+   "metric": "area_cv",
+   "plants": 8,
+   "increased": 5,
+   "median_x": 1.6734065353,
+   "wilcoxon_p": 0.25
+  },
+  {
+   "cam": "video",
+   "comparison": "side wind on / off, hover_30",
+   "metric": "flow_mm_s",
+   "plants": 8,
+   "increased": 7,
+   "median_x": 1.3505330126,
+   "wilcoxon_p": 0.0390625
+  },
+  {
+   "cam": "video",
+   "comparison": "side wind on / off, hover_30",
+   "metric": "flow_rel_s",
+   "plants": 8,
+   "increased": 7,
+   "median_x": 1.2977101776,
+   "wilcoxon_p": 0.0234375
+  },
+  {
+   "cam": "video",
+   "comparison": "side wind on / off, hover_30",
+   "metric": "shape_change",
+   "plants": 8,
+   "increased": 6,
+   "median_x": 1.2487912971,
+   "wilcoxon_p": 0.109375
+  },
+  {
+   "cam": "video",
+   "comparison": "side wind on / off, hover_30",
+   "metric": "area_cv",
+   "plants": 8,
+   "increased": 4,
+   "median_x": 0.9920778873,
+   "wilcoxon_p": 0.84375
+  },
+  {
+   "cam": "phone",
+   "comparison": "side wind on / off, hover_50",
+   "metric": "flow_mm_s",
+   "plants": 7,
+   "increased": 6,
+   "median_x": 1.323303034,
+   "wilcoxon_p": 0.046875
+  },
+  {
+   "cam": "phone",
+   "comparison": "side wind on / off, hover_50",
+   "metric": "flow_rel_s",
+   "plants": 7,
+   "increased": 6,
+   "median_x": 1.2919350399,
+   "wilcoxon_p": 0.03125
+  },
+  {
+   "cam": "phone",
+   "comparison": "side wind on / off, hover_50",
+   "metric": "shape_change",
+   "plants": 7,
+   "increased": 6,
+   "median_x": 1.2361878042,
+   "wilcoxon_p": 0.046875
+  },
+  {
+   "cam": "phone",
+   "comparison": "side wind on / off, hover_50",
+   "metric": "area_cv",
+   "plants": 7,
+   "increased": 3,
+   "median_x": 0.9589466555,
+   "wilcoxon_p": 0.9375
+  },
+  {
+   "cam": "video",
+   "comparison": "side wind on / off, hover_50",
+   "metric": "flow_mm_s",
+   "plants": 7,
+   "increased": 5,
+   "median_x": 1.3518619987,
+   "wilcoxon_p": 0.078125
+  },
+  {
+   "cam": "video",
+   "comparison": "side wind on / off, hover_50",
+   "metric": "flow_rel_s",
+   "plants": 7,
+   "increased": 5,
+   "median_x": 1.2439071266,
+   "wilcoxon_p": 0.078125
+  },
+  {
+   "cam": "video",
+   "comparison": "side wind on / off, hover_50",
+   "metric": "shape_change",
+   "plants": 7,
+   "increased": 6,
+   "median_x": 1.2309126253,
+   "wilcoxon_p": 0.078125
+  },
+  {
+   "cam": "video",
+   "comparison": "side wind on / off, hover_50",
+   "metric": "area_cv",
+   "plants": 7,
+   "increased": 5,
+   "median_x": 1.6606203872,
+   "wilcoxon_p": 0.15625
+  }
+ ]
+}
